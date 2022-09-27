@@ -21,4 +21,4 @@ class SignUpForm(FlaskForm):
     lastName = StringField('Last Name', 
                         validators=[DataRequired(message='Last name is required'), 
                         Length(max=100, message='Last name must be less than 100 characters')])
-    image = StringField('Image', validators=[URL(require_tld=True, message="Invalid Image Type")])
+    image = StringField('Image', validators=[URL(require_tld=True)])
