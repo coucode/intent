@@ -1,12 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
+# -- Variables
 small_str = 100
 med_str = 200
 long_str = 1000
-
-# -- Join Tables
-
 
 # -- Tables
 class Category(db.Model):
@@ -14,11 +12,11 @@ class Category(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(small_str), nullable=False) # REQUIRED
-  headline = db.Column(db.String(med_str)) # OPTIONAL
-  description = db.Column(db.String(long_str)) # OPTIONAL
-  purpose = db.Column(db.String(small_str)) # OPTIONAL
-  private = db.Column(db.Boolean) # OPTIONAL
-  icon = db.Column(db.String(med_str)) # OPTIONAL
+  headline = db.Column(db.String(med_str)) 
+  description = db.Column(db.String(long_str)) 
+  purpose = db.Column(db.String(small_str)) 
+  private = db.Column(db.Boolean) 
+  icon = db.Column(db.String(long_str)) 
   owner_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
 
   def to_dict(self):
