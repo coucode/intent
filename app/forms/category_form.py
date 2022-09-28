@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, BooleanField, DateField, SubmitField
-from wtforms.validators import DataRequired, NumberRange, Length
+from wtforms import StringField, IntegerField, BooleanField
+from wtforms.validators import DataRequired, Length
 
 class CategoryForm(FlaskForm):
   # form variables are in camelCase to better match the front end
