@@ -1,29 +1,173 @@
-.category-image-select {
-  width: 75px;
-  height: 75px;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-.category-image-select#inactive{
-  border: none;
-}
-
-.category-image-select#active {
+/* Form Container */
+/* .category-form-container{
   border: 5px solid red;
+} */
+
+/* Cancel button */
+.cancel-button-container {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.category-image-container{
+i.fa-solid.fa-xmark.fa-lg {
+  color: var(--dark-font-color);
+}
+
+/* Form Header */
+.category-form-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.category-form-header {
+  margin: 0;
+  color: var(--blue-accent-font-color);
+}
+
+
+/* Form Styling */
+.category-form-inner-container {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.category-form-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-form-required-text {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+
+/* - Styling for form elements -  */
+.category-form-labels {
+  font-size: 16px;
+  color: var(--main-font-color);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.category-form-inputs {
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+  padding: 12px 18px;
+}
+
+.category-form-textarea {
+  font-family: var(--main-fonts);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+  padding: 12px 18px;
+  resize:none;
+}
+
+.category-form-char-remaining-text {
+  margin: 0;
+  /* margin-top: 2px; */
+  font-size: 12px;
+  color: var(--grey-accent-font-color);
+  text-align: end;
+}
+
+
+
+/* Styling for the Category icon containers */
+
+.category-image-container {
   width: 400px;
-  height: 100px;
+  height: 125px;
   overflow-x: hidden;
   overflow-y: scroll;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  margin-bottom: 10px;
+  padding: 2px;
 }
 
-.category-inner-image-container {
+
+.category-image-select {
+  width: 75px;
+  height: 75px;
+  padding: 10px;
+  box-sizing: border-box;
+  filter: brightness(50%);
+  background-color: var(--input-border);
+}
+
+.category-image-select#inactive {
+  border: none;
+}
+
+.category-image-select#active {
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  background-color: rgba(25, 112, 150, 0.3);
+  /* filter: invert(50%); */
+}
+
+
+
+/* Styling for Radio Dials */
+.category-form-sections#category-private {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.category-form-radio-container {
   display: flex;
   flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.category-form-radio-text {
+  font-size: 16px;
+  color: var(--main-font-color);
+  padding-left: 2px;
+  margin: 0;
+}
+
+/* Button Styling */
+.category-form-button-container {
+  width: 100%;
+}
+
+.category-submit-button {
+  background-color: var(--orange-button-color);
+  color: var(--main-font-color);
+  border-radius: var(--input-border-radius);
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  height: 2.5em;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.category-submit-button-disabled {
+  color: var(--light-font-color);
+  background-color: #CECECE;
+  border: none;
+  height: 2.5em;
+  border-radius: 5px;
+  cursor: not-allowed;
+  width: 100%;
 }
