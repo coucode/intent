@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
@@ -11,10 +11,12 @@ const CreateCategoryForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [buttonChange, setButtonChange] = useState('category-submit-button-disabled')
+
 
   let images = ['arts', 'brain', 'chart', 'earth', 'flask',
-    'gears', 'house', 'js', 'laptop', 'lightbulb',
-    'python', 'react', 'shopping', 'spa', 'stairs', 'utensils']
+    'gears', 'house', 'laptop', 'lightbulb', 'python',
+    'react', 'shopping', 'spa', 'stairs', 'utensils']
 
   // Form Fields
   const [name, setName] = useState('')
@@ -22,8 +24,17 @@ const CreateCategoryForm = ({ setShowModal }) => {
   const [description, setDescription] = useState('')
   const [purpose, setPurpose] = useState('')
   const [isPrivate, setPrivate] = useState(false)
-  const [icon, setIcon] = useState('')
+  const [icon, setIcon] = useState('/static/images/categories/stairs.svg')
   let ownerId = user.id
+
+  useEffect(() => {
+    if (name.length > 0) {
+      setButtonChange('category-submit-button')
+    }
+    if (name.length === 0) {
+      setButtonChange('category-submit-button-disabled')
+    }
+  }, [name])
 
   const createCategory = async (e) => {
     e.preventDefault()
@@ -53,17 +64,29 @@ const CreateCategoryForm = ({ setShowModal }) => {
       return 'inactive'
     }
   }
+  function charRemaining(max, input) {
+    return Number(max) - Number(input.length)
+  }
 
   return (
-    <div>
-      <form onSubmit={createCategory}>
-        {hasSubmitted && errors.length > 0 && (<div className='errorContainer project-errors '>
+    <div className='category-form-container'>
+      <div className='cancel-button-container'>
+        <i
+          className="fa-solid fa-xmark fa-lg"
+          onClick={() => setShowModal(false)}
+        ></i>
+      </div>
+      <div className='category-form-header-container'>
+        <h2 className='category-form-header'>Create Category</h2>
+      </div>
+      <form onSubmit={createCategory} className='category-form-inner-container'>
+        {hasSubmitted && errors.length > 0 && (<div className='error-container'>
           {errors.map((error, ind) => (
-            <div key={ind} className='errorText'>{error.split(":")[1]}</div>
+            <div key={ind} className='error-text'>{error.split(":")[1]}</div>
           ))}
         </div>)}
-        <div>
-          <label>Category Name</label>
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Category Name <p className='category-form-required-text'>* required</p></label>
           <input
             maxLength={100}
             type='text'
@@ -71,12 +94,13 @@ const CreateCategoryForm = ({ setShowModal }) => {
             onChange={(e) => setName(e.target.value)}
             value={name}
             placeholder="Your category name"
+            className='category-form-inputs'
           >
           </input>
-          <p>*</p>
+          <p className='category-form-char-remaining-text'>{charRemaining(100, name)} characters remaining</p>
         </div>
-        <div>
-          <label>Headline</label>
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Headline</label>
           <input
             maxLength={200}
             type='text'
@@ -84,23 +108,28 @@ const CreateCategoryForm = ({ setShowModal }) => {
             onChange={(e) => setHeadline(e.target.value)}
             value={headline}
             placeholder="Headline for your category (Optional)"
+            className='category-form-inputs'
           >
           </input>
+          <p className='category-form-char-remaining-text'>{charRemaining(200, headline)} characters remaining</p>
         </div>
-        <div>
-          <label>Description</label>
-          <input
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Description</label>
+          <textarea
             maxLength={1000}
             type='text'
             name='description'
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             placeholder="Description for your category (Optional)"
+            className='category-form-textarea'
           >
-          </input>
+          </textarea>
+          <p className='category-form-char-remaining-text'>{charRemaining(1000, description)} characters remaining</p>
+
         </div>
-        <div>
-          <label>Purpose</label>
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Purpose</label>
           <input
             maxLength={100}
             type='text'
@@ -108,23 +137,18 @@ const CreateCategoryForm = ({ setShowModal }) => {
             onChange={(e) => setPurpose(e.target.value)}
             value={purpose}
             placeholder="Purpose for your category (Optional)"
+            className='category-form-inputs'
           >
           </input>
+          <p className='category-form-char-remaining-text'>{charRemaining(100, purpose)} characters remaining</p>
+
         </div>
-        <div>
-          <label>Is this Category private?</label>
-          <input
-            type='checkbox'
-            name='isPrivate'
-            onChange={(e) => purpose ? setPrivate(false) : setPrivate(true)}
-          >
-          </input>
-        </div>
-        <div>
-          <label>Select an Icon</label>
+
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Select an Icon</label>
           <div className='category-image-container'>
             {images.map(image => (
-              <div key={image} className='category-inner-image-container'>
+              <div key={image}>
                 <img
                   src={`/static/images/categories/${image}.svg`}
                   alt={image}
@@ -136,8 +160,30 @@ const CreateCategoryForm = ({ setShowModal }) => {
             ))}
           </div>
         </div>
-        <div>
-          <button type='submit'>Submit</button>
+
+        <div className='category-form-sections' id='category-private'>
+          <label className='category-form-labels'>Is this Category private?</label>
+          <div className='category-form-radio-container'>
+            <input
+              type='radio'
+              name='privacy'
+              value='yes'
+              onClick={(e) => setPrivate(true)}
+            >
+            </input>
+            <label className='category-form-radio-text'>Yes</label>
+            <input
+              type='radio'
+              name='privacy'
+              value='no'
+              onClick={(e) => setPrivate(false)}
+            >
+            </input>
+            <label className='category-form-radio-text'>No</label>
+          </div>
+        </div>
+        <div className='category-form-button-container'>
+          <button type='submit' className={`${buttonChange}`}>Submit</button>
         </div>
       </form>
     </div>

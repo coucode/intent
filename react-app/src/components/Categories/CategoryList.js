@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom';
 import { getAllCategories } from "../../store/category"
 import EditCategoryFormModal from './EditCategoryModal';
 
@@ -21,18 +22,16 @@ function CategoryList() {
   if (allCategories) {
     categoryArr = Object.values(allCategories)
   }
-  // function deleteCategory(id){
-  //   dispatch(deleteACategory(id))
-  // }
 
   return loaded && categoryArr ? (
     <div>
       {categoryArr.map(category => {
         return (
-          <div key={category.id}>
-            {category.name}
-            <EditCategoryFormModal category={category}/>
-            {/* <button type="button" onClick={deleteCategory(category.id)}>Delete</button> */}
+          <div >
+            <NavLink to={`/category/${category.id}`} >
+              {category.name}
+            </NavLink>
+            <EditCategoryFormModal category={category} />
           </div>
         )
       })}
