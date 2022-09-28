@@ -77,7 +77,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
         ></i>
       </div>
       <div className='category-form-header-container'>
-        <h2 className='category-form-header'>Create Category</h2>
+        <h2 className='category-form-header'>Edit Category</h2>
       </div>
       <form onSubmit={editCategory} className='category-form-inner-container'>
         {hasSubmitted && errors.length > 0 && (<div className='error-container'>

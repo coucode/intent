@@ -19,6 +19,9 @@ class Category(db.Model):
   icon = db.Column(db.String(long_str)) 
   owner_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
 
+  # Relationships
+  topics = db.relationship("Topic", back_populates="category", cascade="all, delete")
+
   def to_dict(self):
     return {
       "id": self.id, 
@@ -40,6 +43,10 @@ class Topic(db.Model):
   category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
   owner_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+  # Relationships
+  category = db.relationship("Category", back_populates="topics")
+  steps = db.relationship("Step", back_populates="topic", cascade="all, delete")
+
   def to_dict(self):
     return {
       "id": self.id,     
@@ -56,6 +63,10 @@ class Step(db.Model):
   step_number = db.Column(db.Integer, nullable=False) # REQUIRED
   summary = db.Column(db.String(med_str), nullable=False) # REQUIRED
   description = db.Column(db.String(long_str))
+
+  # Relationship
+  topic = db.relationship("Topic", back_populates="steps")
+
 
   def to_dict(self):
     return {
