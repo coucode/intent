@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../store/category"
 
-
 function CategoryList() {
   const dispatch = useDispatch()
   const allCategories = useSelector(state => state.category)

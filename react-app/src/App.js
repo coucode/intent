@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import CategoryDetail from './components/Categories/CategoryDetail';
 import CategoryList from './components/Categories/CategoryList';
+import CategoryFormModal from './components/Categories/CreateCategoryForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +32,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path='/category/all' exact={true}>
+          <CategoryFormModal />
           <CategoryList />
         </Route>
         <Route path='/category/:id' exact={true}>

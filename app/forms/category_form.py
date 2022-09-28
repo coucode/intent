@@ -9,6 +9,6 @@ class CategoryForm(FlaskForm):
   headline = StringField("Headline", validators=[Length(max=200, message="Headline must be less than 200 characters")])
   description = StringField("Description", validators=[Length(max=1000, message="Desription must bre less than 1000 characters")])
   purpose = StringField("Purpose", validators=[Length(max=100, message="Purpose must be less than 100 characters")])
-  private = BooleanField("Private")
+  isPrivate = BooleanField("Private")
   icon = StringField("Icon", validators=[Length(max=1000, message="Icon input must be less than 1000 characters")])
   ownerId = IntegerField("Owner")

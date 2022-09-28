@@ -30,7 +30,7 @@ function CategoryDetail() {
         {category.headline}
         {category.description}
         {category.purpose}
-        {category.private}
+        {category.isPrivate}
         {category.ownerId}
       </p>
       <img src={category.icon} alt="category"/>
