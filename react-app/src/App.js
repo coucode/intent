@@ -1,67 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
-import CategoryDetail from './components/Categories/CategoryDetail';
-import CategoryList from './components/Categories/CategoryList';
-import CategoryFormModal from './components/Categories/CreateCategoryModal';
-import TopicDetail from './components/Topics/TopicDetail';
+import SplashPage from './components/SplashPage/SplashPage';
 
 function App() {
-  const [loaded, setLoaded] = useState(false);
+  const [currentUserIsLoaded, setCurrentUserIsLoaded] = useState(false);
   const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
-      setLoaded(true);
+      setCurrentUserIsLoaded(true);
     })();
   }, [dispatch]);
 
-  if (!loaded) {
-    return null;
+  if (!currentUserIsLoaded) return null;
+
+  const Home = () => {
+    if (currentUser) {
+      return (
+        <SplashPage />
+      )
+    } else {
+      return (
+        <>
+          <SplashPage />
+        </>
+      )
+    }
   }
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
-        {/* TEMPORARY ROUTES */}
-        <Route path='/topics/:id' exact={true}>
-          <TopicDetail />
+        <Route path='/' exact={true}>
+          <Home />
         </Route>
-        <Route path='/category/all' exact={true}>
-          <CategoryFormModal />
-          <CategoryList />
+        <Route exact path='/login'>
+          {/* <LoginPage /> */}
         </Route>
-        <Route path='/category/:id' exact={true}>
-          <CategoryDetail />
+        <Route exact path='/signup'>
+          {/* <SignUpPage /> */}
         </Route>
-        {/* END TEMPORARY ROUTES */}
-        <Route path='/login' exact={true}>
-          <LoginForm />
+        <Route>
+          <Home />
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
-        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;
