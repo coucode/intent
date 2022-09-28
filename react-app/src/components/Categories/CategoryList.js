@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategories } from "../../store/category"
+import EditCategoryFormModal from './EditCategoryModal';
 
 function CategoryList() {
   const dispatch = useDispatch()
@@ -20,6 +21,9 @@ function CategoryList() {
   if (allCategories) {
     categoryArr = Object.values(allCategories)
   }
+  // function deleteCategory(id){
+  //   dispatch(deleteACategory(id))
+  // }
 
   return loaded && categoryArr ? (
     <div>
@@ -27,6 +31,8 @@ function CategoryList() {
         return (
           <div key={category.id}>
             {category.name}
+            <EditCategoryFormModal category={category}/>
+            {/* <button type="button" onClick={deleteCategory(category.id)}>Delete</button> */}
           </div>
         )
       })}

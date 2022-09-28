@@ -10,7 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import CategoryDetail from './components/Categories/CategoryDetail';
 import CategoryList from './components/Categories/CategoryList';
-import CategoryFormModal from './components/Categories/CreateCategoryForm';
+import CategoryFormModal from './components/Categories/CreateCategoryModal';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

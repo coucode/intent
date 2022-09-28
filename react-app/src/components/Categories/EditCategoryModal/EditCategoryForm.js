@@ -1,40 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 
 import { getACategory, createACategory } from "../../../store/category"
+import '../CategoryStyles/CategoryForms.css'
 
-const CreateCategoryForm = ({setShowModal}) => {
-  const user = useSelector(state => state.session.user)
+const EditCategoryForm = ({ category, setShowModal }) => {
   const history = useHistory()
   const dispatch = useDispatch();
+  const { id } = useParams()
+  const user = useSelector(state => state.session.user)
+
+
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
 
+  let images = ['arts', 'brain', 'chart', 'earth', 'flask',
+    'gears', 'house', 'js', 'laptop', 'lightbulb',
+    'python', 'react', 'shopping', 'spa', 'stairs', 'utensils']
 
   // Form Fields
-  const [name, setName] = useState('')
-  const [headline, setHeadline] = useState('')
-  const [description, setDescription] = useState('')
-  const [purpose, setPurpose] = useState('')
-  const [isPrivate, setPrivate] = useState(false)
-  const [icon, setIcon] = useState('')
+  const [name, setName] = useState(category.name || '')
+  const [headline, setHeadline] = useState(category.headline || '')
+  const [description, setDescription] = useState(category.description || '')
+  const [purpose, setPurpose] = useState(category.purpose || '')
+  const [isPrivate, setPrivate] = useState(category.isPrivate || false)
+  const [icon, setIcon] = useState(category.icon || '')
   let ownerId = user.id
-  
+
   const createCategory = async (e) => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    let payload = {name, headline, description, purpose, isPrivate, icon, ownerId}
-    if (!errors.length){
+    let payload = { name, headline, description, purpose, isPrivate, icon, ownerId }
+    if (!errors.length) {
       let data = await dispatch(createACategory(payload));
-      if (Array.isArray(data)){
+      if (Array.isArray(data)) {
         setErrors(data)
       } else {
         await dispatch(getACategory(data.id))
         await history.push(`/category/${data.id}`)
         await setShowModal(false)
       }
+    }
+  }
+
+  function iconSelector(image) {
+    setIcon(`/static/images/categories/${image}.svg`)
+  }
+
+  function activeIcon(image) {
+    if (icon.includes(image)) {
+      return 'active'
+    } else {
+      return 'inactive'
     }
   }
 
@@ -56,8 +75,7 @@ const CreateCategoryForm = ({setShowModal}) => {
             value={name}
             placeholder="Your category name"
           >
-          </input>
-          <p>*</p>
+          </input>*
         </div>
         <div>
           <label>Headline</label>
@@ -105,7 +123,20 @@ const CreateCategoryForm = ({setShowModal}) => {
           </input>
         </div>
         <div>
-          <label>Icon Placeholder</label>
+          <label>Select an Icon</label>
+          <div className='category-image-container'>
+            {images.map(image => (
+              <div key={image} className='category-inner-image-container'>
+                <img
+                  src={`/static/images/categories/${image}.svg`}
+                  alt={image}
+                  onClick={(e) => iconSelector(image)}
+                  className="category-image-select"
+                  id={activeIcon(image)}
+                />
+              </div>
+            ))}
+          </div>
         </div>
         <div>
           <button type='submit'>Submit</button>
@@ -115,4 +146,4 @@ const CreateCategoryForm = ({setShowModal}) => {
   )
 }
 
-export default CreateCategoryForm
+export default EditCategoryForm
