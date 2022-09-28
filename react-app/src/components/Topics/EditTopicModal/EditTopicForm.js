@@ -28,7 +28,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    let payload = { name, categoryId: category.id, ownerId: user.id}
+    let payload = { name, categoryId: topic.categoryId, ownerId: user.id}
     if (!errors.length) {
       let data = await dispatch(createATopic(payload));
       if (Array.isArray(data)) {
@@ -53,7 +53,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
         ></i>
       </div>
       <div className='topic-form-header-container'>
-        <h2 className='topic-form-header'>Create Topic</h2>
+        <h2 className='topic-form-header'>Edit Topic</h2>
       </div>
       <form onSubmit={createTopic} className='topic-form-inner-container'>
         {hasSubmitted && errors.length > 0 && (<div className='error-container'>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory } from "react-router-dom"
 import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
+import EditTopicFormModal from "./EditTopicModal"
 
 function TopicDetail(){
   const dispatch = useDispatch()
@@ -32,6 +33,7 @@ function TopicDetail(){
   return topicLoaded && topic ? (
     <div>
       <h1>Topic Detail</h1>
+      <EditTopicFormModal topic={topic} />
       <button onClick={handleDeleteClick}>Delete Topic</button>
       <p>
         {topic.name}
