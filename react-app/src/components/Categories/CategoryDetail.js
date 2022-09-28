@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
-import { getACategory } from "../../store/category"
+import { useParams, useHistory } from "react-router-dom"
+import { deleteACategory, getACategory, getAllCategories } from "../../store/category"
 
 function CategoryDetail() {
   const dispatch = useDispatch()
+  const history = useHistory()
   const { id } = useParams()
   const categoryObj = useSelector(state => state.category)
   const category = categoryObj[id]
@@ -22,9 +23,16 @@ function CategoryDetail() {
 
   if (!category) return null
 
+  const handleDeleteClick = async (e) => {
+    await dispatch(deleteACategory(id))
+    await dispatch(getAllCategories())
+    await history.push(`/category/all`)
+  }
+
   return categoryLoaded && category ? (
     <div>
       <h1>Category Detail</h1>
+      <button onClick={handleDeleteClick}>Delete Category</button>
       <p>
         {category.name}
         {category.headline}
