@@ -6,7 +6,6 @@ import EditCategoryFormModal from './EditCategoryModal';
 
 function CategoryList() {
   const dispatch = useDispatch()
-  // const history = useHistory()
   const allCategories = useSelector(state => state.category)
   const [loaded, setLoaded] = useState(false)
 
@@ -28,7 +27,6 @@ function CategoryList() {
     <div>
       {categoryArr.map(category => {
         return (
-
           <div >
             <NavLink to={`/category/${category.id}`} >
               {category.name}
