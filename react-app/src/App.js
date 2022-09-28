@@ -12,6 +12,7 @@ import CategoryDetail from './components/Categories/CategoryDetail';
 import CategoryList from './components/Categories/CategoryList';
 import CategoryFormModal from './components/Categories/CreateCategoryModal';
 import TopicList from './components/Topics/TopicList';
+import TopicDetail from './components/Topics/TopicDetail';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +36,9 @@ function App() {
         {/* TEMPORARY ROUTES */}
         <Route path='/topics' exact={true}>
           <TopicList />
+        </Route>
+        <Route path='/topics/:id' exact={true}>
+          <TopicDetail />
         </Route>
         <Route path='/category/all' exact={true}>
           <CategoryFormModal />

@@ -51,6 +51,22 @@ export const getAllTopics = () => async (dispatch) => {
   }
 }
 
+// Get one Topic
+export const getATopic = (id) => async (dispatch) => {
+  const response = await fetch(`/api/topic/${id}`)
+  if (response.ok) {
+    const topic = await response.json()
+    dispatch(getTopic(topic))
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
 const initialState = {}
 
 const topicReducer = (state = initialState, action) => {
