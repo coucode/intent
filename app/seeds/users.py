@@ -7,17 +7,20 @@ def seed_users():
         email='demo@user.io', 
         password='pass',
         first_name='Demo',
-        last_name='User')
+        last_name='User', 
+        image='https://images.pexels.com/photos/9815361/pexels-photo-9815361.jpeg')
     cecilia = User(
         email='demo1@user.io', 
         password='pass',
         first_name='Cecilia',
-        last_name='O')
+        last_name='O', 
+        image='')
     melissa = User(
         email='demo2@user.io', 
         password='pass',
         first_name='Melissa',
-        last_name='King')
+        last_name='King', 
+        image='')
 
     db.session.add(demo)
     db.session.add(cecilia)
