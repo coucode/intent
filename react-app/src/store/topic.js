@@ -34,3 +34,49 @@ const deleteTopic = (topicId) => {
     topicId
   }
 }
+
+// Get all of the topics
+export const getAllTopics = () => async (dispatch) => {
+  const response = await fetch('/api/topics')
+  if (response.ok) {
+    const topics = await response.json()
+    dispatch(getTopics(topics))
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+const initialState = {}
+
+const topicReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_TOPICS:
+      const allTopics = {}
+      action.topics.topics.forEach(topic => {
+        allTopics[topic.id] = topic
+      })
+      return { ...allTopics }
+    case GET_A_TOPIC:
+      let oneTopic = { ...state }
+      oneTopic[action.topic.id] = action.topic
+      return oneTopic
+    case CREATE_TOPIC:
+      return { ...state, [action.topic.id]: action.topic }
+    case UPDATE_TOPIC:
+      return { ...state, [action.topic.id]: action.topic }
+    case DELETE_TOPIC:
+      const deleteState = { ...state }
+      delete deleteState[action.id]
+      return deleteState
+    default:
+      return state;
+  }
+}
+
+
+export default topicReducer
