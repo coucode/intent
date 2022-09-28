@@ -53,10 +53,74 @@ export const getAllTopics = () => async (dispatch) => {
 
 // Get one Topic
 export const getATopic = (id) => async (dispatch) => {
-  const response = await fetch(`/api/topic/${id}`)
+  const response = await fetch(`/api/topics/${id}`)
   if (response.ok) {
     const topic = await response.json()
     dispatch(getTopic(topic))
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+// Creates a new Topic
+export const createATopic = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/topics`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload)
+  });
+  if (response.ok) {
+    const topic = await response.json()
+    dispatch(createTopic(topic))
+    return topic
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+// Updates a Topic
+export const updateATopic = (payload) => async (dispatch) => {
+  const response = await fetch(`/api/topics/${payload.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload)
+  });
+  if (response.ok) {
+    const topic = await response.json()
+    dispatch(updateTopic(topic))
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ['An error occurred. Please try again.']
+  }
+}
+
+
+
+// Delete a Topic
+export const deleteATopic = (topicId) => async (dispatch) => {
+  const response = await fetch(`/api/topics/${topicId}`, {
+    method: 'DELETE'
+  });
+  if (response.ok) {
+    dispatch(deleteTopic(topicId))
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {

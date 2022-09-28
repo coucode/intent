@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory } from "react-router-dom"
-import { getATopic } from "../../store/topic"
+import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
 
 function TopicDetail(){
   const dispatch = useDispatch()
@@ -23,9 +23,16 @@ function TopicDetail(){
 
   if (!topic) return null
 
+  const handleDeleteClick = async(e) => {
+    await dispatch(deleteATopic(id))
+    await dispatch(getAllTopics())
+    await history.push(`/topics`)
+  }
+
   return topicLoaded && topic ? (
     <div>
       <h1>Topic Detail</h1>
+      <button onClick={handleDeleteClick}>Delete Topic</button>
       <p>
         {topic.name}
       </p>
