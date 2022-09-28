@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
@@ -11,10 +11,12 @@ const CreateCategoryForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [buttonChange, setButtonChange] = useState('category-submit-button-disabled')
+
 
   let images = ['arts', 'brain', 'chart', 'earth', 'flask',
-    'gears', 'house', 'js', 'laptop', 'lightbulb',
-    'python', 'react', 'shopping', 'spa', 'stairs', 'utensils']
+    'gears', 'house', 'laptop', 'lightbulb', 'python',
+    'react', 'shopping', 'spa', 'stairs', 'utensils']
 
   // Form Fields
   const [name, setName] = useState('')
@@ -22,8 +24,17 @@ const CreateCategoryForm = ({ setShowModal }) => {
   const [description, setDescription] = useState('')
   const [purpose, setPurpose] = useState('')
   const [isPrivate, setPrivate] = useState(false)
-  const [icon, setIcon] = useState('')
+  const [icon, setIcon] = useState('/static/images/categories/stairs.svg')
   let ownerId = user.id
+
+  useEffect(() => {
+    if (name.length > 0) {
+      setButtonChange('category-submit-button')
+    }
+    if (name.length === 0) {
+      setButtonChange('category-submit-button-disabled')
+    }
+  }, [name])
 
   const createCategory = async (e) => {
     e.preventDefault()
@@ -104,16 +115,16 @@ const CreateCategoryForm = ({ setShowModal }) => {
         </div>
         <div className='category-form-sections'>
           <label className='category-form-labels'>Description</label>
-          <input
+          <textarea
             maxLength={1000}
             type='text'
             name='description'
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             placeholder="Description for your category (Optional)"
-            className='category-form-inputs'
+            className='category-form-textarea'
           >
-          </input>
+          </textarea>
           <p className='category-form-char-remaining-text'>{charRemaining(1000, description)} characters remaining</p>
 
         </div>
@@ -132,6 +143,24 @@ const CreateCategoryForm = ({ setShowModal }) => {
           <p className='category-form-char-remaining-text'>{charRemaining(100, purpose)} characters remaining</p>
 
         </div>
+
+        <div className='category-form-sections'>
+          <label className='category-form-labels'>Select an Icon</label>
+          <div className='category-image-container'>
+            {images.map(image => (
+              <div key={image}>
+                <img
+                  src={`/static/images/categories/${image}.svg`}
+                  alt={image}
+                  onClick={(e) => iconSelector(image)}
+                  className="category-image-select"
+                  id={activeIcon(image)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className='category-form-sections' id='category-private'>
           <label className='category-form-labels'>Is this Category private?</label>
           <div className='category-form-radio-container'>
@@ -140,7 +169,7 @@ const CreateCategoryForm = ({ setShowModal }) => {
               name='privacy'
               value='yes'
               onClick={(e) => setPrivate(true)}
-              >
+            >
             </input>
             <label className='category-form-radio-text'>Yes</label>
             <input
@@ -153,24 +182,8 @@ const CreateCategoryForm = ({ setShowModal }) => {
             <label className='category-form-radio-text'>No</label>
           </div>
         </div>
-        <div className='category-form-sections'>
-          <label className='category-form-labels'>Select an Icon</label>
-          <div className='category-image-container'>
-            {images.map(image => (
-              <div key={image} className='category-inner-image-container'>
-                <img
-                  src={`/static/images/categories/${image}.svg`}
-                  alt={image}
-                  onClick={(e) => iconSelector(image)}
-                  className="category-image-select"
-                  id={activeIcon(image)}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <button type='submit'>Submit</button>
+        <div className='category-form-button-container'>
+          <button type='submit' className={`${buttonChange}`}>Submit</button>
         </div>
       </form>
     </div>
