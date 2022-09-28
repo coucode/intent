@@ -4,13 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { getAllTopics } from '../../store/topic';
 import EditTopicFormModal from './EditTopicModal';
 
-
+// Returns a list of topics associated with a category.
 function TopicList({category}) {
   const dispatch = useDispatch()
   const allTopics = useSelector(state => state.topics)
   const [loaded, setLoaded] = useState(false)
 
   let topicArr;
+  let filtered;
 
   useEffect(() => {
     dispatch(getAllTopics())
@@ -24,9 +25,11 @@ function TopicList({category}) {
     topicArr = Object.values(allTopics)
   }
 
-  return loaded && topicArr ? (
+  filtered = topicArr.filter(topic => topic.categoryId === category.id)
+
+  return loaded && filtered ? (
     <div>
-      {topicArr.map(topic => {
+      {filtered.map(topic => {
         return (
           <div >
             <NavLink to={`/topics/${topic.id}`} >
