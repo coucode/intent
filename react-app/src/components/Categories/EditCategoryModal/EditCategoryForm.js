@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 
-import { getACategory, createACategory } from "../../../store/category"
+import { getACategory, updateACategory } from "../../../store/category"
 import '../CategoryStyles/CategoryForms.css'
 
 const EditCategoryForm = ({ category, setShowModal }) => {
@@ -29,15 +29,14 @@ const EditCategoryForm = ({ category, setShowModal }) => {
   const createCategory = async (e) => {
     e.preventDefault()
     setHasSubmitted(true)
-
-    let payload = { name, headline, description, purpose, isPrivate, icon, ownerId }
+    let payload = { name, headline, description, purpose, isPrivate, icon, ownerId, id : category.id }
     if (!errors.length) {
-      let data = await dispatch(createACategory(payload));
+      let data = await dispatch(updateACategory(payload));
       if (Array.isArray(data)) {
         setErrors(data)
       } else {
-        await dispatch(getACategory(data.id))
-        await history.push(`/category/${data.id}`)
+        await dispatch(getACategory(category.id))
+        await history.push(`/category/${category.id}`)
         await setShowModal(false)
       }
     }

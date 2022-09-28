@@ -1,1 +1,42 @@
 /* TODO Add site wide styles */
+:root {
+  --main-fonts: 'Open Sans', sans-serif;
+  --main-font-color: #555555;
+  --light-font-color: #FFFFFF;
+  --blue-accent-font-color: #324A6B;
+  --grey-accent-font-color: #878787;
+  --orange-button-color: #FF8243;
+  --teal-button-color: #2AA5DC;
+  --grey-button-color: #4b4040;
+
+  --dark-bg-color: #6b5e67;
+  --light-bg-color: #CCCCCC;
+
+  --input-border-color: #C1D6E0;
+  --input-border: 2px solid rgba(25, 112, 150, 0.3);
+  --input-border-radius: 6px;
+  --input-font-color: #737373;
+}
+
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.error-container {
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+}
