@@ -1,0 +1,29 @@
+.category-image-select {
+  width: 75px;
+  height: 75px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.category-image-select#inactive{
+  border: none;
+}
+
+.category-image-select#active {
+  border: 5px solid red;
+}
+
+.category-image-container{
+  width: 400px;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.category-inner-image-container {
+  display: flex;
+  flex-direction: row;
+}

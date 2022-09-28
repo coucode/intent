@@ -7,7 +7,7 @@ def seed_categories():
       headline="Learn about the basics of self-care",
       description="Modern day self care guides! ",
       purpose="Wellness",
-      private= True,
+      is_private= True,
       icon="/static/images/categories/spa.svg",
       owner_id=1
     )
@@ -16,7 +16,7 @@ def seed_categories():
       headline="Commit JavaScript processes to memory!",
       description="Become more efficient with remembering how to do stuff in JavaScript!",
       purpose="Coding",
-      private= False,
+      is_private= False,
       icon="/static/images/categories/js.svg",
       owner_id=1
     )
@@ -25,14 +25,14 @@ def seed_categories():
       headline="Refresh your mind on DS&A!",
       description="Let's be honest...everyone could use a refresher on this topic. Start learning now!",
       purpose="Coding",
-      private= False,
+      is_private= False,
       icon="/static/images/categories/gears.svg",
       owner_id=1
     )
     orders = Category(
       name="New Orders",
       headline="Improve operational efficiency with this set of topics.",
-      private= False,
+      is_private= False,
       icon="/static/images/categories/house.svg",
       owner_id=2
     )
@@ -41,7 +41,7 @@ def seed_categories():
       headline="Memorize the basic recipes used in every day cooking and reduce your time spent reading recipes over and over again!",
       description="Learn some of famous chef Melissa King's staple recipes",
       purpose="Cooking",
-      private= False,
+      is_private= False,
       icon="/static/images/categories/utensils.svg",
       owner_id=3
     )
