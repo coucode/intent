@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { getACategory, createACategory } from "../../../store/category"
 import '../CategoryStyles/CategoryForms.css'
@@ -8,9 +8,7 @@ import '../CategoryStyles/CategoryForms.css'
 const EditCategoryForm = ({ category, setShowModal }) => {
   const history = useHistory()
   const dispatch = useDispatch();
-  const { id } = useParams()
   const user = useSelector(state => state.session.user)
-
 
   const [errors, setErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
