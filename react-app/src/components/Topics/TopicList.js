@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getAllTopics } from '../../store/topic';
+import EditTopicFormModal from './EditTopicModal';
 
 
-function TopicList() {
+function TopicList({category}) {
   const dispatch = useDispatch()
   const allTopics = useSelector(state => state.topics)
   const [loaded, setLoaded] = useState(false)
@@ -31,6 +32,7 @@ function TopicList() {
             <NavLink to={`/topics/${topic.id}`} >
               {topic.name}
             </NavLink>
+            <EditTopicFormModal category={category} topic={topic}/>
           </div>
         )
       })}

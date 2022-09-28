@@ -13,7 +13,6 @@ const CreateCategoryForm = ({ setShowModal }) => {
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [buttonChange, setButtonChange] = useState('category-submit-button-disabled')
 
-
   let images = ['arts', 'brain', 'chart', 'earth', 'flask',
     'gears', 'house', 'laptop', 'lightbulb', 'python',
     'react', 'shopping', 'spa', 'stairs', 'utensils']

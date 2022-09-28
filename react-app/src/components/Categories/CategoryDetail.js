@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory } from "react-router-dom"
 import { deleteACategory, getACategory, getAllCategories } from "../../store/category"
+import TopicFormModal from "../Topics/CreateTopicModal"
+import TopicList from "../Topics/TopicList"
 
 function CategoryDetail() {
   const dispatch = useDispatch()
@@ -32,6 +34,7 @@ function CategoryDetail() {
   return categoryLoaded && category ? (
     <div>
       <h1>Category Detail</h1>
+      <TopicFormModal category={category}/>
       <button onClick={handleDeleteClick}>Delete Category</button>
       <p>
         {category.name}
@@ -42,6 +45,7 @@ function CategoryDetail() {
         {category.ownerId}
       </p>
       <img src={category.icon} alt="category"/>
+      <TopicList category={category} />
     </div>
   ) : (
     <h1>Loading...</h1>
