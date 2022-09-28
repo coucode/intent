@@ -73,5 +73,5 @@ def seed_topics():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_topics():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE topics RESTART IDENTITY CASCADE;')
     db.session.commit()

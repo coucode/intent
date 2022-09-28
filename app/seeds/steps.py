@@ -107,5 +107,5 @@ def seed_steps():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_steps():
-    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE steps RESTART IDENTITY CASCADE;')
     db.session.commit()
