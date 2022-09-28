@@ -35,7 +35,7 @@ def new_category():
       headline=form.data['headline'],
       description=form.data['description'],
       purpose=form.data['purpose'],
-      private=form.data['private'],
+      is_private=form.data['isPrivate'],
       icon=form.data['icon'],
       owner_id=form.data['ownerId']
     )
@@ -55,7 +55,7 @@ def update_category(id):
       "headline": update_form.data['headline'],
       "description": update_form.data['description'],
       "purpose": update_form.data['purpose'],
-      "private": update_form.data['private'],
+      "is_private": update_form.data['isPrivate'],
       "icon": update_form.data['icon'],
       "owner_id": update_form.data['ownerId']
     })

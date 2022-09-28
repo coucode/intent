@@ -15,7 +15,7 @@ class Category(db.Model):
   headline = db.Column(db.String(med_str)) 
   description = db.Column(db.String(long_str)) 
   purpose = db.Column(db.String(small_str)) 
-  private = db.Column(db.Boolean) 
+  is_private = db.Column(db.Boolean) 
   icon = db.Column(db.String(long_str)) 
   owner_id = db.Column(db.Integer, db.ForeignKey('users.id')) 
 
@@ -26,7 +26,7 @@ class Category(db.Model):
       "headline": self.headline,
       "description": self.description,
       "purpose": self.purpose,
-      "private": self.private,
+      "isPrivate": self.is_private,
       "icon": self.icon,
       "ownerId": self.owner_id
     }
