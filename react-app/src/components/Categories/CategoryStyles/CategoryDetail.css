@@ -139,7 +139,7 @@
   max-height: 100vh; */
   box-sizing: border-box;
   margin-left: 200px;
-  contain: size;
+  /* contain: size; */
 }
 
 /* About - Inner Left Nav Bar */
@@ -195,3 +195,4 @@
   color: var(--grey-accent-font-color);
   position: relative;
 }
+

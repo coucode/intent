@@ -36,7 +36,7 @@ const CreateTopicForm = ({setShowModal, category}) => {
         setErrors(data)
       } else {
         await dispatch(getATopic(data.id))
-        await history.push(`/topics/${data.id}`)
+        await history.push(`/category/${category.id}/topics/${data.id}/preview`)
         await setShowModal(false)
       }
     }

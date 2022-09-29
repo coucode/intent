@@ -1,6 +1,6 @@
 .topic-form-container {
-  width: 70vw;
-  height: 30vw;
+  width: 50vw;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -97,4 +97,19 @@ i.fa-solid.fa-xmark.fa-lg {
   border-radius: 5px;
   cursor: not-allowed;
   width: 100%;
+}
+
+.edit-topic-button {
+  cursor: pointer;
+  background-color: #29a5dc;
+  border-radius: 24px;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 300;
+  height: 42px;
+  line-height: 9px;
+  padding: 0;
+  position: relative;
+  border: none;
+  width: 100px;
 }

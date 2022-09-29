@@ -7,7 +7,7 @@ function EditTopicFormModal({topic, category}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Topic</button>
+      <button onClick={() => setShowModal(true)} className='edit-topic-button'>Edit</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditTopicForm setShowModal={setShowModal} category={category} topic={topic} />
