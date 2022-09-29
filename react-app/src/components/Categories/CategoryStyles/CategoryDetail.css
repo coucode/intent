@@ -1,0 +1,131 @@
+.category-detail-overview-container {
+  display: flex;
+  flex-direction: row;
+  padding: 36px;
+}
+
+.category-detail-overview-icon-container {
+  width: 130px;
+  height: 130px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: var(--teal-button-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-detail-icon {
+  width: 85%;
+  height: 85%;
+}
+
+.category-detail-overview-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+}
+
+#category-name-text {
+  color: var(--blue-accent-font-color);
+  line-height: 1;
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+  margin-bottom: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.category-detail-overview-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.delete-category-button {
+  cursor: pointer;
+  background-color: var(--orange-button-color);
+  border-radius: 24px;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 300;
+  height: 42px;
+  line-height: 9px;
+  padding: 0;
+  position: relative;
+  border: none;
+  width: 100px;
+  margin-left: 10px;
+}
+
+/* Nav bar for Category Detail */
+.category-detail-nav {
+  height: 45px;
+  background-color: #ECF2F6;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+.category-nav-tabs-container {
+  width: 50%;
+}
+
+.category-nav-tabs {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--main-fonts);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 400px;
+  color: var(--blue-accent-font-color)
+}
+
+.category-nav-tabs-container>a {
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.category-nav-tabs-container>a.active {
+  background: unset;
+  color: var(--text-color);
+  border-bottom: 8px solid #9FAFC8;
+}
+
+.category-nav-tabs-container>a:hover:not(.active) {
+  font-weight: 200;
+  background: unset;
+  color: var(--text-color);
+  border-bottom: 8px solid #9FAFC5;
+}
+
+.category-detail-inner-content {
+  height: 100%;
+}
+
+/* About Content */
+.category-detail-about-container{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.category-detail-about-inner-left {
+  background-color: #ECF2F6;
+  height: 100%;
+  /* position: fixed; */
+  width: 200px;
+}
+
+.category-detail-about-inner-right {
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 200px; */
+  padding: 24px 42px;
+}
