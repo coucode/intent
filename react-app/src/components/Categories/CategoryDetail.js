@@ -14,6 +14,7 @@ function CategoryDetail() {
   const categoryObj = useSelector(state => state.category)
   const category = categoryObj[id]
   const [categoryLoaded, setCategoryLoaded] = useState(false)
+  const [activeNav, setActiveNav] = useState(false)
 
   useEffect(() => {
     dispatch(getACategory(id))
@@ -59,21 +60,53 @@ function CategoryDetail() {
     </nav>
   )
 
+  function isActive(link) {
+    if (activeNav === link){
+      return 'active'
+    } else {
+      return 'inactive'
+    }
+  }
+
   let about = (
     <div className="category-detail-about-container">
       <div className="category-detail-about-inner-left">
-        <p>About Left Nav</p>
-        <a href="#category-detail-headline">Headline</a>
-        <a href="#category-detail-description">Description</a>
-        <a href="#category-detail-purpose">Purpose</a>
-
+        <div className="category-detail-about-inner-left-navbar">
+          <div
+            className="about-inner-left-navbar-link-container"
+            onClick={(e) => setActiveNav('headline')}
+            id={isActive('headline')}>
+            <a href="#category-detail-headline" className="about-inner-left-navbar-text">Headline</a>
+          </div>
+          <div
+            className="about-inner-left-navbar-link-container"
+            onClick={(e) => setActiveNav('description')}
+            id={isActive('description')}>
+            <a href="#category-detail-description" className="about-inner-left-navbar-text">Description</a>
+          </div>
+          <div
+            className="about-inner-left-navbar-link-container"
+            onClick={(e) => setActiveNav('purpose')}
+            id={isActive('purpose')}>
+            <a href="#category-detail-purpose" className="about-inner-left-navbar-text">Purpose</a>
+          </div>
+        </div>
       </div>
       <div className="category-detail-about-inner-right">
-        <h3 id='category-detail-headline'>Headline</h3>
+        <div className="category-detail-header-containers">
+          <h3 id='category-detail-headline'>Headline</h3>
+
+        </div>
+        <div className="category-detail-header-containers">
+          <h3 id='category-detail-description'>Description</h3>
+
+        </div>
+        <div className="category-detail-header-containers">
+          <h3 id='category-detail-purpose'>Purpose</h3>
+
+        </div>
         <p>{category.headline}</p>
-        <h3 id='category-detail-description'>Description</h3>
         <p>{category.description}</p>
-        <h3 id='category-detail-purpose'>Purpose</h3>
         <p>{category.purpose}</p>
 
       </div>

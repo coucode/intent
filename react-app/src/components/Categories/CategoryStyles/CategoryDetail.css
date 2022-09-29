@@ -69,6 +69,7 @@
 }
 
 .category-nav-tabs-container {
+  height: 45px;
   width: 50%;
 }
 
@@ -114,18 +115,72 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .category-detail-about-inner-left {
   background-color: #ECF2F6;
-  height: 100%;
+  height: 100vh;
   width: 200px;
-  display: flex;
-  flex-direction: column;
+  max-width: 200px;
+  min-width: 200px;
+  position: fixed;
 }
 
 .category-detail-about-inner-right {
   display: flex;
   flex-direction: column;
   padding: 24px 42px;
+  width: calc(100% - 200px);
+  height: 100vh;
+  max-height: 100vh;
+  box-sizing: border-box;
+  margin-left: 200px;
+}
+
+/* About - Inner Left Nav Bar */
+.category-detail-about-inner-left-navbar {
+  padding: 6px 24px 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-inner-left-navbar-link-container {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px 0 12px 24px;
+}
+
+.about-inner-left-navbar-link-container#active{
+  border-left: 8px solid rgba(18, 57, 108, 0.36);
+  box-sizing: border-box;
+}
+
+.about-inner-left-navbar-link-container#active > a {
+  font-weight: 600;
+}
+
+.about-inner-left-navbar-text {
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--text-color)
+}
+
+/* About - content */
+.category-detail-header-containers {
+  border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+  height: 30px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+#category-detail-headline, 
+#category-detail-description,
+#category-detail-purpose {
+  color: #29A5DC;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
 }
