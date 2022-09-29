@@ -2,6 +2,7 @@
   display: flex;
 }
 
+/* Nav Bar Styling */
 .nav-bar-display {
   min-width: 340px;
   width: 340px;
@@ -11,6 +12,17 @@
   background-color: var(--nav-bar-bg-color);
 }
 
+/* Open Nav Bar Button */
+.navbar-open-button-container {
+  display: flex;
+  justify-content: flex-end;
+  height: fit-content;
+  margin-left: 12.5px;
+  margin-top: 25px;
+  position: absolute;
+  z-index: 0;
+}
+
 .fa-solid.fa-angles-right {
   border: 2px solid var(--input-border-color);
   color: var(--input-border-color);
@@ -18,4 +30,29 @@
   border-radius: 50px;
   background-color: var(--nav-bar-bg-color);
   cursor: pointer;
+  position: relative;
+}
+
+/* Content for the Landing Page */
+.landing-inner-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.landing-inner-left-container {
+  min-width: 25px;
+  width: 25px;
+  max-width: 25px;
+  height: 100%;
+  position: relative;
+  background-color: var(--nav-bar-bg-color);
+}
+
+.landing-inner-right-container {
+  border: 5px solid purple;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25px;
 }
