@@ -61,7 +61,7 @@ function CategoryDetail() {
   )
 
   function isActive(link) {
-    if (activeNav === link){
+    if (activeNav === link) {
       return 'active'
     } else {
       return 'inactive'
@@ -95,19 +95,20 @@ function CategoryDetail() {
       <div className="category-detail-about-inner-right">
         <div className="category-detail-header-containers">
           <h3 id='category-detail-headline'>Headline</h3>
-
         </div>
+        <p className="category-detail-inner-text">{category.headline}</p>
+
         <div className="category-detail-header-containers">
           <h3 id='category-detail-description'>Description</h3>
-
         </div>
+        <p className="category-detail-inner-text">{category.description}</p>
+
+
         <div className="category-detail-header-containers">
           <h3 id='category-detail-purpose'>Purpose</h3>
 
         </div>
-        <p>{category.headline}</p>
-        <p>{category.description}</p>
-        <p>{category.purpose}</p>
+        <p className="category-detail-inner-text" id="last">{category.purpose}</p>
 
       </div>
     </div>
