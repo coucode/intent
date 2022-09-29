@@ -34,17 +34,18 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .navbar-logo-container {
   display: flex;
   align-items: center;
   text-decoration: none;
 }
 
-.fa-solid.fa-meteor{
+.fa-solid.fa-meteor {
   color: var(--light-bg-color);
 }
 
-.user-profile-container{
+.user-profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,12 +59,44 @@
   border-radius: 50%;
 }
 
+.navbar-profile-text {
+  color: var(--light-font-color);
+  font-size: 16px;
+  margin: 0;
+}
+
 .navbar-logout-container {
   display: flex;
   align-items: center;
 }
 
 /* My Categories */
-.navbar-category-header-container{
-  
+.navbar-category-header-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: center;
+}
+
+.navbar-category-header-inner-container {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  border-bottom: 1px solid rgba(127, 133, 146, 0.44);
+}
+
+.navbar-category-text {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#navbar-count {
+  padding-left: 8px;
+}
+
+/* Category List Container */
+.navbar-category-list-container{
+  padding: 20px;
 }
