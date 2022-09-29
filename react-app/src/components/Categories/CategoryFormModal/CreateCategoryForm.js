@@ -115,7 +115,7 @@ const CreateCategoryForm = ({ setShowModal }) => {
         <div className='category-form-sections'>
           <label className='category-form-labels'>Description</label>
           <textarea
-            maxLength={1000}
+            maxLength={5000}
             type='text'
             name='description'
             onChange={(e) => setDescription(e.target.value)}
@@ -124,7 +124,7 @@ const CreateCategoryForm = ({ setShowModal }) => {
             className='category-form-textarea'
           >
           </textarea>
-          <p className='category-form-char-remaining-text'>{charRemaining(1000, description)} characters remaining</p>
+          <p className='category-form-char-remaining-text'>{charRemaining(5000, description)} characters remaining</p>
 
         </div>
         <div className='category-form-sections'>
