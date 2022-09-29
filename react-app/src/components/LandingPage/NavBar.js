@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getAllCategories } from '../../store/category'
 import CategoryListByUser from '../Categories/CategoryListByUser'
+import CategoryFormModal from '../Categories/CategoryFormModal'
 
 function NavBar({ setShowNav }) {
   const dispatch = useDispatch()
@@ -59,6 +60,7 @@ function NavBar({ setShowNav }) {
       </div>
       <div className='navbar-category-list-container'>
         <CategoryListByUser categories={filtered} />
+        <CategoryFormModal />
       </div>
     </div>
   ) : (

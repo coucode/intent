@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getAllCategories } from "../../store/category"
-import EditCategoryFormModal from './EditCategoryModal';
 import './CategoryStyles/CategoryList.css'
 
-function CategoryListByUser({categories}) {
+function CategoryListByUser({ categories }) {
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false)
 
@@ -22,12 +21,13 @@ function CategoryListByUser({categories}) {
     <div>
       {categories.map(category => {
         return (
-          <div >
-            <img src={category.icon} alt="category icon"/>
-            <NavLink to={`/category/${category.id}`} >
-              {category.name}
+          <div className='category-list-container'>
+            <img src={category.icon} alt="category icon" className='category-list-icon' />
+            <NavLink to={`/category/${category.id}`} className='category-list-navtext'>
+              <p className='category-list-text'>
+                {category.name}
+              </p>
             </NavLink>
-            <EditCategoryFormModal category={category} />
           </div>
         )
       })}
