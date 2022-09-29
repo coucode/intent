@@ -1,8 +1,11 @@
+// Constants
 const GET_TOPICS = 'topics/GET_TOPICS'
 const GET_A_TOPIC = 'topics/GET_A_TOPIC'
 const CREATE_TOPIC = 'topics/CREATE_TOPIC'
 const UPDATE_TOPIC = 'topics/UPDATE_TOPIC'
 const DELETE_TOPIC = 'topics/DELETE_TOPIC'
+
+// Action Creators
 
 const getTopics = (topics) => {
   return {
@@ -34,6 +37,8 @@ const deleteTopic = (topicId) => {
     topicId
   }
 }
+
+// Thunk Actions
 
 // Get all of the topics
 export const getAllTopics = () => async (dispatch) => {
@@ -131,6 +136,8 @@ export const deleteATopic = (topicId) => async (dispatch) => {
   }
 }
 
+
+// Reducer
 const initialState = {}
 
 const topicReducer = (state = initialState, action) => {
