@@ -36,8 +36,6 @@ function TopicList({ category }) {
     </div>
   )
 
-
-
   return loaded && filtered ? (
     <div className='topic-list-container'>
       {topicListNav}
@@ -45,7 +43,7 @@ function TopicList({ category }) {
         filtered.map(topic => {
           return (
             <div className='topic-list-item-container'>
-              <NavLink to={`/topics/${topic.id}`} className="topic-list-item-text">
+              <NavLink to={`/category/${category.id}/topics/${topic.id}`} className="topic-list-item-text">
                 {topic.name}
               </NavLink>
               <div className='topic-list-item-buttons'>
