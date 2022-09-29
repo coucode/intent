@@ -1,0 +1,120 @@
+.topic-detail-overview-container {
+  display: flex;
+  flex-direction: row;
+  padding: 13px 36px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Topic Detail - Link back to the Category Page */
+.topic-detail-category-link {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  align-items: center;
+  color: var(--main-font-color);
+}
+
+.topic-category-detail-icon-container {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: var(--teal-button-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.topic-category-detail-icon {
+  width: 85%;
+  height: 85%;
+}
+
+#topic-category-name-text {
+  text-decoration: none;
+  color: var(--main-font-color);
+  line-height: 13px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+}
+
+.topic-detail-name {
+  color: var(--blue-accent-font-color);
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 20px;
+  position: relative;
+}
+
+/* Topic Detail Navigation Bar */
+.topic-detail-nav {
+  height: 45px;
+  background-color: #ECF2F6;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
+.topic-nav-tabs-container {
+  height: 45px;
+  width: 50%;
+}
+
+.topic-nav-tabs {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: var(--main-fonts);
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 400px;
+  color: var(--blue-accent-font-color)
+}
+
+.topic-nav-tabs-container>a {
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.topic-nav-tabs-container>a.active {
+  background: unset;
+  color: var(--text-color);
+  border-bottom: 8px solid #9FAFC8;
+}
+
+.topic-nav-tabs-container>a:hover:not(.active) {
+  font-weight: 200;
+  background: unset;
+  color: var(--text-color);
+  border-bottom: 8px solid #9FAFC5;
+}
+
+.delete-topic-button {
+  cursor: pointer;
+  background-color: var(--orange-button-color);
+  border-radius: 24px;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 300;
+  height: 42px;
+  line-height: 9px;
+  padding: 0;
+  position: relative;
+  border: none;
+  width: 100px;
+  margin-left: 10px;
+}
