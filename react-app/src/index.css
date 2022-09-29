@@ -48,3 +48,17 @@ button {
   color: red;
   font-size: 14px;
 }
+
+.logout-button {
+  cursor: pointer;
+  background-color: var(--orange-button-color);
+  border-radius: 24px;
+  font-size: 12px;
+  height: 48px;
+  margin: 0;
+  border: none;
+  color: #FFFFFF;
+  font-weight: 400;
+  justify-content: center;
+  padding: 0 25.2px;
+}

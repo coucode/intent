@@ -7,7 +7,7 @@ function EditCategoryFormModal({category}) {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Project</button>
+      <button onClick={() => setShowModal(true)}>Edit Category</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditCategoryForm category={category} setShowModal={setShowModal} />

@@ -39,6 +39,9 @@ function App() {
         <Route path='/' exact={true}>
           <Home />
         </Route>
+        <Route path='/splashpage' exact={true}>
+          <SplashPage />
+        </Route>
         <Route>
           <Home />
         </Route>
