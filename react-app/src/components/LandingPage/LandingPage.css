@@ -1,0 +1,21 @@
+.landing-container {
+  display: flex;
+}
+
+.nav-bar-display {
+  min-width: 340px;
+  width: 340px;
+  max-width: 340px;
+  height: 100%;
+  position: relative;
+  background-color: var(--nav-bar-bg-color);
+}
+
+.fa-solid.fa-angles-right {
+  border: 2px solid var(--input-border-color);
+  color: var(--input-border-color);
+  padding: 5px;
+  border-radius: 50px;
+  background-color: var(--nav-bar-bg-color);
+  cursor: pointer;
+}

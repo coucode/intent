@@ -11,6 +11,7 @@
 
   --dark-bg-color: #6b5e67;
   --light-bg-color: #CCCCCC;
+  --nav-bar-bg-color: #324054;
 
   --input-border-color: #C1D6E0;
   --input-border: 2px solid rgba(25, 112, 150, 0.3);
@@ -23,9 +24,15 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
+body {
+  margin: 0.1px;
+}
+
 button {
   font-family: 'Open Sans', sans-serif;
 }
+
+
 
 .error-container {
   margin: 0;

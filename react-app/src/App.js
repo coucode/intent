@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   const [currentUserIsLoaded, setCurrentUserIsLoaded] = useState(false);
@@ -21,7 +22,7 @@ function App() {
   const Home = () => {
     if (currentUser) {
       return (
-        <SplashPage />
+        <LandingPage />
       )
     } else {
       return (
@@ -37,12 +38,6 @@ function App() {
       <Switch>
         <Route path='/' exact={true}>
           <Home />
-        </Route>
-        <Route exact path='/login'>
-          {/* <LoginPage /> */}
-        </Route>
-        <Route exact path='/signup'>
-          {/* <SignUpPage /> */}
         </Route>
         <Route>
           <Home />

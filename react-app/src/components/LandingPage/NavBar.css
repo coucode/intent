@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.navbar-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.fa-solid.fa-angles-left {
+  border: 2px solid var(--input-border-color);
+  color: var(--input-border-color);
+  padding: 5px;
+  border-radius: 50px;
+  background-color: var(--nav-bar-bg-color);
+  cursor: pointer;
+  position: relative;
+}
