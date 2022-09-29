@@ -35,7 +35,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
         setErrors(data)
       } else {
         await dispatch(getATopic(topic.id))
-        await history.push(`/topics/${topic.id}`)
+        await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
         await setShowModal(false)
       }
     }

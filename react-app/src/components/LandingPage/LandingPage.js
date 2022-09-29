@@ -48,7 +48,10 @@ function LandingPage() {
             <Route exact path='/category/:id/topics'>
               <CategoryDetail />
             </Route>
-            <Route exact path='/category/:categoryId/topics/:id/steps'>
+            <Route exact path='/category/:categoryId/topics/:id'>
+              <TopicDetail />
+            </Route>
+            <Route exact path='/category/:categoryId/topics/:id/preview'>
               <TopicDetail />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/steps/edit'>

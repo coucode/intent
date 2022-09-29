@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useParams, useHistory, NavLink } from "react-router-dom"
+import { useParams, useHistory, NavLink, Route, Switch } from "react-router-dom"
 import { getACategory } from "../../store/category"
 import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
+import EditTopicFormModal from "./EditTopicModal"
 import './TopicStyles/TopicDetail.css'
 
 function TopicDetail() {
@@ -31,7 +32,7 @@ function TopicDetail() {
   const handleDeleteClick = async (e) => {
     await dispatch(deleteATopic(id))
     await dispatch(getAllTopics())
-    await history.push(`/topics`)
+    await history.push(`/category/${category.id}/topics`)
   }
 
   let overview = (
@@ -48,13 +49,17 @@ function TopicDetail() {
       <div>
         <p className="topic-detail-name">{topic?.name}</p>
       </div>
+      <div>
+        <EditTopicFormModal category={category} topic={topic} />
+        <button onClick={handleDeleteClick} className='delete-topic-button'>Delete</button>
+      </div>
     </div>
   )
 
   let topicNav = (
     <nav className="topic-detail-nav">
       <div className="topic-nav-tabs-container">
-        <NavLink to={`/category/${category.id}/topics/${topic.id}/steps`} className="topic-nav-tabs">Preview Steps</NavLink>
+        <NavLink to={`/category/${category.id}/topics/${topic.id}/preview`} className="topic-nav-tabs">Preview Steps</NavLink>
       </div>
       <div className="topic-nav-tabs-container">
         <NavLink to={`/category/${category.id}/topics/${topic.id}/steps/edit`} className="topic-nav-tabs">Edit Steps</NavLink>
@@ -62,16 +67,20 @@ function TopicDetail() {
     </nav>
   )
 
-  return topicLoaded && topic ? (
+  return topicLoaded && topic && category ? (
     <>
       {overview}
       {topicNav}
-      {/* <h1>Topic Detail</h1>
-      <EditTopicFormModal topic={topic} />
-      <button onClick={handleDeleteClick}>Delete Topic</button>
-      <p>
-        {topic.name}
-      </p> */}
+      <div className="topic-detail-inner-content">
+        <Switch>
+          <Route exact path={`/category/${category.id}/topics/${topic.id}/preview`}>
+            <h2>Placeholder preview steps</h2>
+          </Route>
+          <Route exact path={`/category/${category.id}/topics/${topic.id}/steps/edit`}>
+            <h2>Placeholder edit steps</h2>
+          </Route>
+        </Switch>
+      </div>
     </>
   ) : (
     <h1>Loading...</h1>

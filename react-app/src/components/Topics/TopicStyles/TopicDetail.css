@@ -3,6 +3,7 @@
   flex-direction: row;
   padding: 13px 36px;
   align-items: center;
+  justify-content: space-between;
 }
 
 /* Topic Detail - Link back to the Category Page */
@@ -100,4 +101,20 @@
   background: unset;
   color: var(--text-color);
   border-bottom: 8px solid #9FAFC5;
+}
+
+.delete-topic-button {
+  cursor: pointer;
+  background-color: var(--orange-button-color);
+  border-radius: 24px;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 300;
+  height: 42px;
+  line-height: 9px;
+  padding: 0;
+  position: relative;
+  border: none;
+  width: 100px;
+  margin-left: 10px;
 }
