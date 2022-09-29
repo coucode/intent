@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createATopic, getATopic } from '../../../store/topic';
+import { updateATopic, getATopic } from '../../../store/topic';
 import '../TopicStyles/TopicForms.css'
 
 
@@ -28,14 +28,14 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    let payload = { name, categoryId: topic.categoryId, ownerId: user.id}
+    let payload = { name, categoryId: topic.categoryId, ownerId: user.id, id: topic.id}
     if (!errors.length) {
-      let data = await dispatch(createATopic(payload));
+      let data = await dispatch(updateATopic(payload));
       if (Array.isArray(data)) {
         setErrors(data)
       } else {
-        await dispatch(getATopic(data.id))
-        await history.push(`/topics/${data.id}`)
+        await dispatch(getATopic(topic.id))
+        await history.push(`/topics/${topic.id}`)
         await setShowModal(false)
       }
     }

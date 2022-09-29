@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* Topics - navigation bar with header and create topic button */
 .topic-list-nav {
   border-bottom: 1px solid rgba(46, 64, 86, 0.26);
   width: 100%;
@@ -25,4 +26,34 @@
   margin-right: 36px;
   color: var(--grey-accent-font-color);
   font-size: 14px;
+}
+
+/* Topic List */
+.topic-list-item-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #DDDDDD;
+  margin: 0;
+  position: relative;
+}
+
+.topic-list-item-text {
+  width: 100%;
+  height: auto;
+  padding: 24px 30px 24px 36px;
+  cursor: pointer;
+
+  text-decoration: none;
+  color: #197096;
+  font-size: 18px;
+  font-weight: 600;
+  /* margin: 0 18px 0 0; */
+}
+
+.topic-list-item-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
