@@ -1,0 +1,113 @@
+.signup-form-container {
+  width: 30vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Cancel button */
+.cancel-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+i.fa-solid.fa-xmark.fa-lg {
+  color: var(--dark-font-color);
+}
+
+/* Form Header */
+.signup-form-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form-header {
+  margin: 0;
+  color: var(--blue-accent-font-color);
+}
+
+.signup-form-inner-container {
+  margin-top: 15px;
+  padding: 5px;
+}
+
+.signup-form-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form-required-text {
+  font-size: 12px;
+  color: var(--main-font-color);
+  margin: 0;
+  padding-left: 5px;
+  padding-bottom: 2px;
+}
+
+.signup-form-image-subtitle {
+  font-size: 12px;
+  color: var(--main-font-color);
+  margin: 0;
+  text-align: end;
+}
+
+/* - Styling for form elements -  */
+.signup-form-labels {
+  font-size: 16px;
+  color: var(--main-font-color);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.signup-form-profile-label {
+  font-size: 16px;
+  color: var(--main-font-color);
+  display: flex;
+  flex-direction: row;
+}
+
+.signup-form-inputs {
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 700;
+  outline: none;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+}
+
+#profile-picture-input-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Button Styling */
+.signup-form-button-container {
+  width: 100%;
+}
+
+.signup-submit-button {
+  background-color: var(--orange-button-color);
+  color: var(--main-font-color);
+  border-radius: var(--input-border-radius);
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  height: 2.5em;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.signup-submit-button-disabled {
+  color: var(--light-font-color);
+  background-color: #CECECE;
+  border: none;
+  height: 2.5em;
+  border-radius: 5px;
+  cursor: not-allowed;
+  width: 100%;
+}

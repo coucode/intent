@@ -63,15 +63,17 @@ def sign_up():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
-            username=form.data['username'],
+            first_name=form.data['firstName'],
+            last_name=form.data['lastName'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            image=form.data['image']
         )
         db.session.add(user)
         db.session.commit()
         login_user(user)
         return user.to_dict()
-    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': form.errors}, 401
 
 
 @auth_routes.route('/unauthorized')
