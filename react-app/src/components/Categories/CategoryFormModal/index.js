@@ -9,7 +9,6 @@ function CategoryFormModal() {
   return (
     <>
       <div className='category-form-create-new-container'>
-        
         <button onClick={() => setShowModal(true)} className='create-category-button'> <i className="fa-solid fa-plus"></i> Create Category</button>
       </div>
       {showModal && (

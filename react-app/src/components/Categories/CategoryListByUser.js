@@ -22,8 +22,8 @@ function CategoryListByUser({ categories }) {
       {categories.map(category => {
         return (
           <div className='category-list-container'>
-            <img src={category.icon} alt="category icon" className='category-list-icon' />
             <NavLink to={`/category/${category.id}`} className='category-list-navtext'>
+            <img src={category.icon} alt="category icon" className='category-list-icon' />
               <p className='category-list-text'>
                 {category.name}
               </p>

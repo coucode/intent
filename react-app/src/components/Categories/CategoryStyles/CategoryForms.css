@@ -186,7 +186,6 @@ i.fa-solid.fa-xmark.fa-lg {
 }
 
 .category-form-create-new-container:hover {
-  cursor: pointer;
   padding-left: 0;
   padding-right: 0;
   background-color: rgba(128, 128, 128, 0.559);
