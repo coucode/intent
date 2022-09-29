@@ -119,13 +119,13 @@
 .category-detail-about-inner-left {
   background-color: #ECF2F6;
   height: 100%;
-  /* position: fixed; */
   width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .category-detail-about-inner-right {
   display: flex;
   flex-direction: column;
-  /* margin-left: 200px; */
   padding: 24px 42px;
 }

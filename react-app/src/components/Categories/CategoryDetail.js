@@ -63,9 +63,18 @@ function CategoryDetail() {
     <div className="category-detail-about-container">
       <div className="category-detail-about-inner-left">
         <p>About Left Nav</p>
+        <a href="#category-detail-headline">Headline</a>
+        <a href="#category-detail-description">Description</a>
+        <a href="#category-detail-purpose">Purpose</a>
+
       </div>
       <div className="category-detail-about-inner-right">
-        <h1>Test</h1>
+        <h3 id='category-detail-headline'>Headline</h3>
+        <p>{category.headline}</p>
+        <h3 id='category-detail-description'>Description</h3>
+        <p>{category.description}</p>
+        <h3 id='category-detail-purpose'>Purpose</h3>
+        <p>{category.purpose}</p>
 
       </div>
     </div>
