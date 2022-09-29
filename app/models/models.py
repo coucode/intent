@@ -13,7 +13,7 @@ class Category(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(small_str), nullable=False) # REQUIRED
   headline = db.Column(db.String(med_str)) 
-  description = db.Column(db.String(long_str)) 
+  description = db.Column(db.String(5000)) 
   purpose = db.Column(db.String(small_str)) 
   is_private = db.Column(db.Boolean) 
   icon = db.Column(db.String(long_str)) 

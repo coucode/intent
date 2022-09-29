@@ -30,9 +30,13 @@
   padding-left: 10px;
 }
 .category-list-navtext {
+  width: 100%;
   text-decoration: none;
   font-size: 16px;
   color: var(--light-font-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .category-list-text:hover {
