@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
-import CreateCategoryForm from './CreateCategoryForm';
+import CreateTopicForm from './CreateTopicForm';
 
-function CategoryFormModal() {
+function TopicFormModal({category}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Create Project</button>
+      <button onClick={() => setShowModal(true)}>Create Topic</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateCategoryForm setShowModal={setShowModal} />
+          <CreateTopicForm setShowModal={setShowModal} category={category} />
         </Modal>
       )}
     </>
   );
 }
 
-export default CategoryFormModal;
+export default TopicFormModal;

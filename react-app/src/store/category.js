@@ -51,6 +51,7 @@ export const getAllCategories = () => async (dispatch) => {
     return ['An error occurred. Please try again.']
   }
 }
+
 // Get one Category
 export const getACategory = (id) => async (dispatch) => {
   const response = await fetch(`/api/category/${id}`)
