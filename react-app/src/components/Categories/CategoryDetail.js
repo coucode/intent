@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Switch, Route } from "react-router-dom"
 import { deleteACategory, getACategory, getAllCategories } from "../../store/category"
 import EditCategoryModal from './EditCategoryModal'
-import TopicFormModal from "../Topics/CreateTopicModal"
 import TopicList from "../Topics/TopicList"
 import './CategoryStyles/CategoryDetail.css'
 
@@ -27,6 +26,7 @@ function CategoryDetail() {
   }, [category])
 
   if (!category) return null
+
 
   const handleDeleteClick = async (e) => {
     await dispatch(deleteACategory(id))
@@ -88,7 +88,7 @@ function CategoryDetail() {
             className="about-inner-left-navbar-link-container"
             onClick={(e) => setActiveNav('purpose')}
             id={isActive('purpose')}>
-            <a href="#category-detail-purpose" className="about-inner-left-navbar-text">Purpose</a>
+            <a href="#test" className="about-inner-left-navbar-text">Purpose</a>
           </div>
         </div>
       </div>
@@ -101,14 +101,13 @@ function CategoryDetail() {
         <div className="category-detail-header-containers">
           <h3 id='category-detail-description'>Description</h3>
         </div>
-        <p className="category-detail-inner-text">{category.description}</p>
+        <p className="category-detail-inner-text" >{category.description}</p>
 
 
         <div className="category-detail-header-containers">
           <h3 id='category-detail-purpose'>Purpose</h3>
-
         </div>
-        <p className="category-detail-inner-text" id="last">{category.purpose}</p>
+        <p className="category-detail-inner-text">{category.purpose}</p>
 
       </div>
     </div>
@@ -118,18 +117,6 @@ function CategoryDetail() {
     <>
       {overview}
       {categoryNav}
-      {/* <h1>Category Detail</h1>
-      <TopicFormModal category={category}/>
-      <p>
-        {category.name}
-        {category.headline}
-        {category.description}
-        {category.purpose}
-        {category.isPrivate}
-        {category.ownerId}
-      </p>
-      <img src={category.icon} alt="category"/>
-      <TopicList category={category} /> */}
       <div className="category-detail-inner-content">
         <Switch>
           <Route exact path={`/category/${category.id}/about`}>

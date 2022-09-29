@@ -1,6 +1,6 @@
 .topic-form-container {
-  width: 70vw;
-  height: 30vw;
+  width: 50vw;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
