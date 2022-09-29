@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import DemoUser from '../auth/DemoUser';
 import './SignUpForm.css'
 
 const SignUpForm = ({ setShowModal }) => {
@@ -148,6 +149,7 @@ const SignUpForm = ({ setShowModal }) => {
         </div>
         <button type='submit' className={`${buttonChange}`} >Sign Up</button>
       </form>
+      <DemoUser />
     </div>
   );
 };
