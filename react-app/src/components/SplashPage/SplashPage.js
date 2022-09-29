@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import LogoutButton from '../auth/LogoutButton'
+import LoginModal from '../LoginModal'
+import SignUpModal from '../SignUpModal'
 import './SplashPage.css'
 
 function SplashPage() {
@@ -6,14 +8,13 @@ function SplashPage() {
     <div>
       <h1>This is the Splash Page!</h1>
       <div>
-        <NavLink to="/login">
-          Login
-        </NavLink>
+        <LoginModal />
       </div>
       <div>
-        <NavLink to="/signup" className="splashpageSignup">
-          Get Started
-        </NavLink>
+        <SignUpModal />
+      </div>
+      <div>
+        <LogoutButton />
       </div>
     </div>
   )
