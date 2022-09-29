@@ -63,3 +63,16 @@ button {
   justify-content: center;
   padding: 0 25.2px;
 }
+
+.demo-user-button {
+  background-color: var(--orange-button-color);
+  color: var(--main-font-color);
+  border-radius: var(--input-border-radius);
+  border: none;
+  padding: 7px;
+  cursor: pointer;
+  height: 2.5em;
+  border-radius: 5px;
+  width: 98%;
+  margin-left: 4px;
+}
