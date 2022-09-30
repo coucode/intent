@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, {  useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createAStep, getAStep } from '../../store/step'
 import './StepStyles/StepForms.css'
@@ -26,7 +26,7 @@ const CreateStepForm = ({ category, topic }) => {
         setErrors(data)
       } else {
         await dispatch(getAStep(data.id))
-        await history.push(`/category/${category.id}/topics/${data.id}/preview`)
+        await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
       }
     }
   }
@@ -43,7 +43,7 @@ const CreateStepForm = ({ category, topic }) => {
         ))}
       </div>)}
       <form onSubmit={createStep} className='create-step-form'>
-        <p className='create-step-new-card-text'>New Card</p>
+        <p className='create-step-new-card-text'>New Step</p>
 
         <div className='create-step-input-container'>
           <input
