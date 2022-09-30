@@ -57,7 +57,7 @@ const LoginForm = ({ setShowModal }) => {
           ))}
         </div>)}
         <div className='login-form-sections'>
-          <label htmlFor='email' className='login-form-labels'>Email <p className='login-form-required-text'>* required</p></label>
+          <label htmlFor='email' className='login-form-labels'>Email <p className='login-form-required-text'>*</p></label>
           <input
             name='email'
             type='text'
@@ -68,7 +68,7 @@ const LoginForm = ({ setShowModal }) => {
           />
         </div>
         <div className='login-form-sections'>
-          <label htmlFor='password' className='login-form-labels'>Password <p className='login-form-required-text'>* required</p></label>
+          <label htmlFor='password' className='login-form-labels'>Password <p className='login-form-required-text'>*</p></label>
           <input
             name='password'
             type='password'
