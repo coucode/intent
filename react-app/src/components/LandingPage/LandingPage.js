@@ -57,6 +57,9 @@ function LandingPage() {
             <Route exact path='/category/:categoryId/topics/:id/steps/edit'>
               <TopicDetail />
             </Route>
+            <Route>
+              <h1>Click on a Category to get started!</h1>
+            </Route>
           </Switch>
         </div>
 
