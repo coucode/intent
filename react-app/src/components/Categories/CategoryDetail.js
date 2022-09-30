@@ -147,18 +147,17 @@ function CategoryDetail({ categories }) {
         <div className="category-detail-header-containers">
           <h3 id='category-detail-headline'>Headline</h3>
         </div>
-        <p className="category-detail-inner-text">{category.headline}</p>
+        <p className="category-detail-inner-text">{(category.headline)? category.headline : "No headline provided"}</p>
 
         <div className="category-detail-header-containers">
           <h3 id='category-detail-description'>Description</h3>
         </div>
-        <p className="category-detail-inner-text" >{category.description}</p>
-
+        <p className="category-detail-inner-text" >{category.description ? category.description : "No description provided"}</p>
 
         <div className="category-detail-header-containers">
           <h3 id='category-detail-purpose'>Purpose</h3>
         </div>
-        <p className="category-detail-inner-text">{category.purpose}</p>
+        <p className="category-detail-inner-text">{category.purpose ? category.purpose : "No purpose provided"}</p>
       </div>
 
     </div>
