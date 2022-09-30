@@ -46,7 +46,7 @@ const CreateCategoryForm = ({ setShowModal }) => {
         setErrors(data)
       } else {
         await dispatch(getACategory(data.id))
-        await history.push(`/category/${data.id}`)
+        await history.push(`/category/${data.id}/about`)
         await setShowModal(false)
       }
     }
