@@ -45,10 +45,12 @@ function TopicDetail({topics}) {
   topics.forEach(topic => {
     if (Number(topic.id) === Number(id)) {
       exists = true;
+    } else {
+      exists = 'checked'
     }
   })
 
-  if (!exists) {
+  if (topicLoaded === true && isOwner === false) {
     return (
       <div>
         <h1>This Topic does not exist...redirecting</h1>
@@ -57,7 +59,7 @@ function TopicDetail({topics}) {
     )
   }
 
-  if (topicLoaded === true && isOwner === false) {
+  if (!topic && exists === 'checked') {
     return (
       <div>
         <h1>This Topic does not exist...redirecting</h1>
