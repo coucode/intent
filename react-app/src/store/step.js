@@ -38,7 +38,7 @@ const deleteStep = (stepId) => {
 
 // Gets all of the steps
 export const getAllSteps = () => async (dispatch) => {
-  const response = await fetch('/api/steps/all')
+  const response = await fetch('/api/steps')
   if (response.ok) {
     const steps = await response.json()
     dispatch(getSteps(steps))

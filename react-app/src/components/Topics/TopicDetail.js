@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Route, Switch } from "react-router-dom"
 import { getACategory } from "../../store/category"
 import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
+import StepList from "../Steps/StepList"
 import EditTopicFormModal from "./EditTopicModal"
 import './TopicStyles/TopicDetail.css'
 
@@ -74,7 +75,7 @@ function TopicDetail() {
       <div className="topic-detail-inner-content">
         <Switch>
           <Route exact path={`/category/${category.id}/topics/${topic.id}/preview`}>
-            <h2>Placeholder preview steps</h2>
+            <StepList category={category} topic={topic}/>
           </Route>
           <Route exact path={`/category/${category.id}/topics/${topic.id}/steps/edit`}>
             <h2>Placeholder edit steps</h2>

@@ -43,7 +43,7 @@ function TopicList({ category }) {
         filtered.map(topic => {
           return (
             <div className='topic-list-item-container'>
-              <NavLink to={`/category/${category.id}/topics/${topic.id}`} className="topic-list-item-text">
+              <NavLink to={`/category/${category.id}/topics/${topic.id}/preview`} className="topic-list-item-text">
                 {topic.name}
               </NavLink>
               <div className='topic-list-item-buttons'>
