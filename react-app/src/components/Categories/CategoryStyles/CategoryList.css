@@ -28,6 +28,10 @@
   font-size: 16px;
   color: var(--light-font-color);
   padding-left: 10px;
+  width: 75%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
 }
 .category-list-navtext {
   width: 100%;

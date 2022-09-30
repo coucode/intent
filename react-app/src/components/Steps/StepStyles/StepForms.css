@@ -59,6 +59,7 @@
   font-size: 12px;
   margin: 0;
   margin-right: 5px;
+  color: var(--grey-accent-font-color)
 }
 
 .create-step-char-remaining#dual {
@@ -126,5 +127,5 @@
   color: var(--blue-accent-font-color);
   font-size: 24px;
   font-weight: 700;
-
+  text-align: center;
 }

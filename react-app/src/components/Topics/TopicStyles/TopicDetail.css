@@ -118,3 +118,8 @@
   width: 100px;
   margin-left: 10px;
 }
+
+.topic-detail-inner-content {
+  height: 95vh;
+  overflow-y: scroll;
+}

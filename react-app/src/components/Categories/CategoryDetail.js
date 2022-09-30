@@ -15,7 +15,7 @@ function CategoryDetail({ categories }) {
   const categoryObj = useSelector(state => state.category)
   const category = categoryObj[id]
   const [categoryLoaded, setCategoryLoaded] = useState(false)
-  const [activeNav, setActiveNav] = useState(false)
+  const [activeNav, setActiveNav] = useState('category-detail-headline')
   const [isOwner, setOwner] = useState(false)
 
 
@@ -31,7 +31,6 @@ function CategoryDetail({ categories }) {
       }
     }
   }, [category, user])
-
 
   function redirect() {
     setTimeout(() => { history.push(`/`) }, 1000)
@@ -103,7 +102,7 @@ function CategoryDetail({ categories }) {
   )
 
   function isActive(link) {
-    if (activeNav === link) {
+    if (activeNav.includes(link)) {
       return 'active'
     } else {
       return 'inactive'
@@ -116,21 +115,31 @@ function CategoryDetail({ categories }) {
         <div className="category-detail-about-inner-left-navbar">
           <div
             className="about-inner-left-navbar-link-container"
-            onClick={(e) => setActiveNav('headline')}
+
             id={isActive('headline')}>
-            <a href="#category-detail-headline" className="about-inner-left-navbar-text">Headline</a>
+            <a
+              href="#category-detail-headline"
+              className="about-inner-left-navbar-text"
+              onClick={(e) => setActiveNav('category-detail-headline')}
+            >Headline</a>
           </div>
           <div
             className="about-inner-left-navbar-link-container"
-            onClick={(e) => setActiveNav('description')}
             id={isActive('description')}>
-            <a href="#category-detail-description" className="about-inner-left-navbar-text">Description</a>
+            <a
+              href="#category-detail-description"
+              className="about-inner-left-navbar-text"
+              onClick={(e) => setActiveNav('category-detail-description')}
+            >Description</a>
           </div>
           <div
             className="about-inner-left-navbar-link-container"
-            onClick={(e) => setActiveNav('purpose')}
             id={isActive('purpose')}>
-            <a href="#test" className="about-inner-left-navbar-text">Purpose</a>
+            <a
+              href="#category-detail-purpose"
+              className="about-inner-left-navbar-text"
+              onClick={(e) => setActiveNav('category-detail-purpose')}
+            >Purpose</a>
           </div>
         </div>
       </div>
@@ -138,20 +147,19 @@ function CategoryDetail({ categories }) {
         <div className="category-detail-header-containers">
           <h3 id='category-detail-headline'>Headline</h3>
         </div>
-        <p className="category-detail-inner-text">{category.headline}</p>
+        <p className="category-detail-inner-text">{(category.headline)? category.headline : "No headline provided"}</p>
 
         <div className="category-detail-header-containers">
           <h3 id='category-detail-description'>Description</h3>
         </div>
-        <p className="category-detail-inner-text" >{category.description}</p>
-
+        <p className="category-detail-inner-text" >{category.description ? category.description : "No description provided"}</p>
 
         <div className="category-detail-header-containers">
           <h3 id='category-detail-purpose'>Purpose</h3>
         </div>
-        <p className="category-detail-inner-text">{category.purpose}</p>
-
+        <p className="category-detail-inner-text">{category.purpose ? category.purpose : "No purpose provided"}</p>
       </div>
+
     </div>
   )
 
