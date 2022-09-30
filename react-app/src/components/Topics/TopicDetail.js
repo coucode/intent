@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Route, Switch } from "react-router-dom"
 import { getACategory } from "../../store/category"
 import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
+import CreateStepForm from "../Steps/CreateStepForm"
+import EditStepList from "../Steps/EditStepList"
+import StepList from "../Steps/StepList"
 import EditTopicFormModal from "./EditTopicModal"
 import './TopicStyles/TopicDetail.css'
 
@@ -27,7 +30,10 @@ function TopicDetail() {
     }
   }, [topic])
 
+
+
   if (!topic) return null
+  if (!category) return null
 
   const handleDeleteClick = async (e) => {
     await dispatch(deleteATopic(id))
@@ -38,7 +44,7 @@ function TopicDetail() {
   let overview = (
     <div className="topic-detail-overview-container">
       <div>
-        <NavLink to={`/category/${category?.id}`} className="topic-detail-category-link">
+        <NavLink to={`/category/${category?.id}/about`} className="topic-detail-category-link">
           <i className="fa-solid fa-chevron-left"></i>
           <div className="topic-category-detail-icon-container">
             <img src={category?.icon} alt="category icon" className="topic-category-detail-icon" />
@@ -74,10 +80,17 @@ function TopicDetail() {
       <div className="topic-detail-inner-content">
         <Switch>
           <Route exact path={`/category/${category.id}/topics/${topic.id}/preview`}>
-            <h2>Placeholder preview steps</h2>
+            <StepList category={category} topic={topic} />
           </Route>
           <Route exact path={`/category/${category.id}/topics/${topic.id}/steps/edit`}>
-            <h2>Placeholder edit steps</h2>
+            <div className="create-step-form-container">
+              <p className="step-form-header">Create a Step</p>
+              <CreateStepForm category={category} topic={topic} />
+            </div>
+            <div className="edit-step-form-container">
+              <p className="step-form-header">Edit Step(s)</p>
+              <EditStepList category={category} topic={topic} />
+            </div>
           </Route>
         </Switch>
       </div>
