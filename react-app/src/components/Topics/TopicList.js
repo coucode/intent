@@ -48,7 +48,9 @@ function TopicList({ category }) {
               </NavLink>
               <div className='topic-list-item-buttons'>
                 <EditTopicFormModal category={category} topic={topic} />
-                <p style={{margin:0}}>placeholder to add steps</p>
+                <NavLink to={`/category/${category.id}/topics/${topic.id}/steps/edit`} className="add-steps-in-topics">
+                  Add Steps
+                </NavLink>
               </div>
             </div>
           )

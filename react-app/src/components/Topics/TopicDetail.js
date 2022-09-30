@@ -44,7 +44,7 @@ function TopicDetail() {
   let overview = (
     <div className="topic-detail-overview-container">
       <div>
-        <NavLink to={`/category/${category?.id}`} className="topic-detail-category-link">
+        <NavLink to={`/category/${category?.id}/about`} className="topic-detail-category-link">
           <i className="fa-solid fa-chevron-left"></i>
           <div className="topic-category-detail-icon-container">
             <img src={category?.icon} alt="category icon" className="topic-category-detail-icon" />
