@@ -1,0 +1,98 @@
+.create-step-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.create-step-form {
+  display: flex;
+  flex-direction: row;
+  width: calc(100vw - 500px);
+  border: 1px solid #C0CAD1;
+  box-shadow: -1px 1px 6px #d5e1e9;
+  border-radius: 6px;
+  padding: 5px;
+  padding-top: 15px;
+}
+
+.create-step-new-card-text {
+  font-size: 16px;
+  color: #197096;
+  font-weight: 600;
+  margin: 0;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  margin-bottom: 15px;
+}
+
+.create-step-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+.create-step-labels {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grey-accent-font-color);
+}
+
+.step-form-required-text {
+  font-size: 10px;
+  color: red;
+  font-weight: 400;
+  text-align: end;
+  margin: 0;
+  margin-top: -20px;
+  margin-right: 10px;
+}
+
+.create-step-char-remaining {
+  text-align: end;
+  font-size: 12px;
+  margin: 0;
+  margin-right: 5px;
+}
+
+.create-step-char-remaining#dual {
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.create-step-inputs {
+  height: 78px;
+  border:  2px solid #cccccc;
+}
+
+#right-border {
+  border-right: 5px solid #cccccc;
+}
+
+.create-step-inputs-left {
+  height: 78px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border:  2px solid #cccccc;
+}
+
+.create-step-inputs-right {
+  height: 78px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border:  2px solid #cccccc;
+
+}
+
+.create-step-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
