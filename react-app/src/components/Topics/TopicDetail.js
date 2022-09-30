@@ -9,15 +9,18 @@ import StepList from "../Steps/StepList"
 import EditTopicFormModal from "./EditTopicModal"
 import './TopicStyles/TopicDetail.css'
 
-function TopicDetail() {
+function TopicDetail({topics}) {
   const dispatch = useDispatch()
   const history = useHistory()
   const { categoryId, id } = useParams()
+  const user = useSelector(state => state.session.user)
   const categoryObj = useSelector(state => state.category)
   const category = categoryObj[categoryId]
   const topicObj = useSelector(state => state.topics)
   const topic = topicObj[id]
   const [topicLoaded, setTopicLoaded] = useState(false)
+  const [isOwner, setOwner] = useState(false)
+
 
   useEffect(() => {
     dispatch(getACategory(categoryId))
@@ -27,10 +30,41 @@ function TopicDetail() {
   useEffect(() => {
     if (topic) {
       setTopicLoaded(true)
+      if (Number(topic.ownerId) === Number(user.id)) {
+        setOwner(true)
+      }
     }
-  }, [topic])
+  }, [topic, user])
 
+  function redirect() {
+    setTimeout(() => { history.push(`/`) }, 1000)
+  }
 
+  let exists = false;
+
+  topics.forEach(topic => {
+    if (Number(topic.id) === Number(id)) {
+      exists = true;
+    }
+  })
+
+  if (!exists) {
+    return (
+      <div>
+        <h1>This Topic does not exist...redirecting</h1>
+        {redirect()}
+      </div>
+    )
+  }
+
+  if (topicLoaded === true && isOwner === false) {
+    return (
+      <div>
+        <h1>This Topic does not exist...redirecting</h1>
+        {redirect()}
+      </div>
+    )
+  }
 
   if (!topic) return null
   if (!category) return null
