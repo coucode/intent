@@ -1,18 +1,30 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 import './LandingPage.css'
 import { Redirect, Route, Switch } from "react-router-dom";
 import CategoryDetail from '../Categories/CategoryDetail'
 import TopicDetail from '../Topics/TopicDetail'
+import { getAllCategories } from "../../store/category";
+import { getAllTopics } from "../../store/topic";
 
 function LandingPage() {
+  const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
+  const categoryObj = useSelector(state => state.category)
+  const categoryArr = Object.values(categoryObj)
+  const topicObj = useSelector(state => state.topics)
+  const topicArr = Object.values(topicObj)
   const [showNav, setShowNav] = useState(true)
 
   if (!user) {
     <Redirect to="/" />
   }
+
+  useEffect(() => {
+    dispatch(getAllCategories())
+    dispatch(getAllTopics())
+  },[dispatch])
 
   function openNavButton() {
     if (showNav) {
@@ -40,22 +52,25 @@ function LandingPage() {
         <div className="landing-inner-right-container">
           <Switch>
             <Route exact path='/category/:id'>
-              <CategoryDetail />
+              <CategoryDetail categories={categoryArr} />
             </Route>
             <Route exact path='/category/:id/about'>
-              <CategoryDetail />
+              <CategoryDetail categories={categoryArr} />
             </Route>
             <Route exact path='/category/:id/topics'>
-              <CategoryDetail />
+              <CategoryDetail categories={categoryArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id'>
-              <TopicDetail />
+              <TopicDetail topics={topicArr}/>
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/preview'>
-              <TopicDetail />
+              <TopicDetail topics={topicArr}/>
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/steps/edit'>
-              <TopicDetail />
+              <TopicDetail topics={topicArr}/>
+            </Route>
+            <Route>
+              <h1>Click on a Category to get started!</h1>
             </Route>
           </Switch>
         </div>

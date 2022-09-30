@@ -6,14 +6,18 @@ import EditCategoryModal from './EditCategoryModal'
 import TopicList from "../Topics/TopicList"
 import './CategoryStyles/CategoryDetail.css'
 
-function CategoryDetail() {
+function CategoryDetail({ categories }) {
   const dispatch = useDispatch()
   const history = useHistory()
   const { id } = useParams()
+
+  const user = useSelector(state => state.session.user)
   const categoryObj = useSelector(state => state.category)
   const category = categoryObj[id]
   const [categoryLoaded, setCategoryLoaded] = useState(false)
   const [activeNav, setActiveNav] = useState(false)
+  const [isOwner, setOwner] = useState(false)
+
 
   useEffect(() => {
     dispatch(getACategory(id))
@@ -22,10 +26,48 @@ function CategoryDetail() {
   useEffect(() => {
     if (category) {
       setCategoryLoaded(true)
+      if (Number(category.ownerId) === Number(user.id)) {
+        setOwner(true)
+      }
     }
-  }, [category])
+  }, [category, user])
 
-  if (!category) return null
+
+  function redirect() {
+    setTimeout(() => { history.push(`/`) }, 1000)
+  }
+
+  let exists = false;
+  categories.forEach((category) => {
+    if (Number(category.id) === Number(id)) {
+      exists = true;
+    } else {
+      exists = 'checked'
+    }
+  })
+
+  if (categoryLoaded === true && isOwner === false) {
+    return (
+      <div>
+        <h1>This Category does not exist...redirecting</h1>
+        {redirect()}
+      </div>
+    )
+  }
+
+
+  if (!category && exists === 'checked') {
+    return (
+      <div>
+        <h1>This Category does not exist...redirecting</h1>
+        {redirect()}
+      </div>
+    )
+  }
+
+  if (!category) {
+    return null
+  }
 
 
   const handleDeleteClick = async (e) => {
@@ -129,7 +171,9 @@ function CategoryDetail() {
       </div>
     </>
   ) : (
-    <h1>Loading...</h1>
+    <div>
+      <h1>Loading...</h1>
+    </div>
   )
 }
 
