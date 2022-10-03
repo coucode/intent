@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
+import { useHistory } from "react-router-dom"
+
 import SplashLogoutButton from '../auth/SplashLogoutButton'
 import LoginModal from '../LoginModal'
 import SignUpModal from '../SignUpModal'
@@ -7,6 +9,8 @@ import './SplashPage.css'
 
 function SplashPage() {
   const user = useSelector(state => state.session.user)
+  const history = useHistory()
+
   let count = useRef(0)
   const [image, setImage] = useState('https://images.pexels.com/photos/4458554/pexels-photo-4458554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
 
@@ -17,9 +21,16 @@ function SplashPage() {
     </div>
   )
 
+  const handleLandingRedirect = async (e) => {
+    await history.push('/')
+  }
+
   if (user) {
     sessionLinks = (
-      <SplashLogoutButton />
+      <div className='splash-start-container'>
+        <button onClick={handleLandingRedirect} className='splash-buttons' id='splash-teal'>Home</button>
+        <SplashLogoutButton />
+      </div>
     )
   }
 
@@ -59,9 +70,9 @@ function SplashPage() {
         >
         </div>
       </div>
-      <div className='splash-additional-content'>
+      {/* <div className='splash-additional-content'>
         <p>Hello</p>
-      </div>
+      </div> */}
 
 
     </div>

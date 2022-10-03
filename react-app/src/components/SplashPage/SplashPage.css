@@ -68,7 +68,7 @@
 
 /* Main Content */
 .splash-main-content {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 80px);
   position: static;
 }
 
