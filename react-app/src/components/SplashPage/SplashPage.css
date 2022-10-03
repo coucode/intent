@@ -1,0 +1,108 @@
+.splash-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+
+.splash-nav {
+  display: flex;
+  align-items: center;
+  height: 90px;
+  justify-content: space-between;
+  margin: 0 auto;
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 7;
+  background-color: #FFFFFF;
+}
+
+.splash-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  width: 110px;
+}
+
+#splash-logo-color {
+  color: var(--blue-accent-font-color);
+}
+
+.splash-buttons {
+  border: none;
+  height: 100%;
+  width: 125px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.splash-buttons:hover {
+  border: none;
+  height: 100%;
+  width: 125px;
+  cursor: pointer;
+  opacity: 90%;
+}
+
+/* Container for Log In and Sign Up */
+.splash-start-container {
+  height: 100%;
+}
+
+.splash-buttons#splash-orange {
+  color: var(--light-font-color);
+  background-color: var(--orange-button-color);
+  font-weight: 600;
+}
+
+.splash-buttons#splash-teal {
+  color: #000;
+  background-color: var(--teal-button-color);
+  font-weight: 600;
+}
+
+/* Main Content */
+.splash-main-content {
+  height: calc(100vh - 90px);
+  position: static;
+}
+
+.splash-images {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  opacity: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.splash-quote-container {
+  position: absolute;
+  z-index: 1;
+  margin-top: 65vh;
+  background-color: rgba(219, 219, 219, 0.005);
+}
+
+.splash-quote {
+  font-size: 70px;
+  padding-left: 40px;
+  color: #000;
+}
+
+.splash-additional-content {
+  position: relative;
+  height: calc(100vh - 90px);
+  border: 5px solid red;
+}
