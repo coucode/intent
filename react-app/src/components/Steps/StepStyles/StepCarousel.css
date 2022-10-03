@@ -41,13 +41,20 @@
   flex-direction: row;
 }
 
-.sc-content {
+.sc-content-card {
   display: flex;
   transition: all 250ms linear;
   border: 5px solid blue;
   flex-direction: column;
   overflow: hidden;
   width: 800px;
+  background-color: aqua;
+}
+
+.sc-content{
+  border: 5px solid green;
+  width: 100%;
+  
 }
 
 .sc-left-arrow,

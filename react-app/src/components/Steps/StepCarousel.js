@@ -4,7 +4,7 @@ import './StepStyles/StepCarousel.css'
 function StepCarousel({ steps }) {
   const [current, setCurrent] = useState(0)
   const [length, setLength] = useState(steps?.length)
-  const [number, setNumber] = useState()
+  const [number, setNumber] = useState(1)
 
   useEffect(() => {
     setLength(steps.length)
@@ -17,7 +17,7 @@ function StepCarousel({ steps }) {
   let sorted = steps.sort(compare)
 
   useEffect(() => {
-    setNumber(sorted[current].stepNumber)
+    setNumber(sorted[current]?.stepNumber)
   }, [sorted, current])
 
 
@@ -34,7 +34,9 @@ function StepCarousel({ steps }) {
   }
 
   function hider(step) {
-    if (step.stepNumber !== number) {
+    if (step.stepNumber === number) {
+      return 'contents'
+    } else {
       return 'none'
     }
   }
@@ -55,16 +57,17 @@ function StepCarousel({ steps }) {
               return (
                 <div
                   key={step.stepNumber}
-                  className='sc-content'
+                  className='sc-content-card'
                   style={{
                     transform: `translateX(-${current * 100}%)`,
-                    display: hider(step.stepNumber)
-
+                    display: hider(step)
                   }}
                 >
-                  <p>Number: {step.stepNumber}</p>
-                  <p>Summary: {step.summary} </p>
-                  <p>Description: {step.description}</p>
+                  <div className='sc-content'>
+                    <p>Number: {step.stepNumber}</p>
+                    <p>Summary: {step.summary} </p>
+                    <p>Description: {step.description}</p>
+                  </div>
                 </div>
               )
             })
