@@ -72,7 +72,7 @@ function CategoryDetail({ categories }) {
   const handleDeleteClick = async (e) => {
     await dispatch(deleteACategory(id))
     await dispatch(getAllCategories())
-    await history.push(`/category/all`)
+    await history.push(`/`)
   }
 
   let overview = (

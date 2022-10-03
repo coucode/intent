@@ -33,13 +33,11 @@ function SplashPage() {
     ]
     count.current++
     let calc = count.current % 5
-    console.log("COUNT", count, "CALC", calc)
     let interval = setInterval(() => { setImage(images[calc]) }, 3000)
     return () => {
       clearInterval(interval)
     }
   }, [image])
-  console.log("IMAGE", image)
 
   return (
     <div className='splash-container'>
