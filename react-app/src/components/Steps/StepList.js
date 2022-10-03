@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSteps } from '../../store/step';
+import StepCarousel from './StepCarousel';
+import './StepStyles/StepCarousel.css'
 
 
 function StepList({ category, topic }) {
@@ -25,9 +27,10 @@ function StepList({ category, topic }) {
 
   filtered = stepArr.filter(step => step.topicId === topic?.id)
 
+
   return loaded && filtered ? (
-    <>
-      {
+    <div className='sc-outer-container'>
+      {/* {
         filtered.map(step => {
           return (
             <div key={step.id}>
@@ -37,8 +40,9 @@ function StepList({ category, topic }) {
             </div>
           )
         })
-      }
-    </>
+      } */}
+      <StepCarousel steps={filtered}/>
+    </div>
   ) : (
     <h1>Loading...</h1>
   )

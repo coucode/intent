@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Route, Switch } from "react-router-dom"
 import { getACategory } from "../../store/category"
-import { deleteATopic, getAllTopics, getATopic } from "../../store/topic"
+import { deleteATopic, getATopic } from "../../store/topic"
 import CreateStepForm from "../Steps/CreateStepForm"
 import EditStepList from "../Steps/EditStepList"
 import StepList from "../Steps/StepList"
@@ -73,7 +73,7 @@ function TopicDetail({topics}) {
 
   const handleDeleteClick = async (e) => {
     await dispatch(deleteATopic(id))
-    await dispatch(getAllTopics())
+    // await dispatch(getAllTopics())
     await history.push(`/category/${category.id}/topics`)
   }
 
