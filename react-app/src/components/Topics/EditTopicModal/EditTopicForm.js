@@ -29,7 +29,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
     setHasSubmitted(true)
 
     let payload = { name, categoryId: topic.categoryId, ownerId: user.id, id: topic.id}
-    if (!errors.length) {
+    // if (!errors.length) {
       let data = await dispatch(updateATopic(payload));
       if (Array.isArray(data)) {
         setErrors(data)
@@ -38,7 +38,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
         await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
         await setShowModal(false)
       }
-    }
+    // }
   }
   function charRemaining(max, input) {
     return Number(max) - Number(input.length)
@@ -62,7 +62,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
           ))}
         </div>)}
         <div className='topic-form-sections'>
-          <label className='topic-form-labels'>Topic Name <p className='topic-form-required-text'>* required</p></label>
+          <label className='topic-form-labels'>Topic Name <p className='topic-form-required-text'>*</p></label>
           <input
             maxLength={100}
             type='text'

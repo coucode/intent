@@ -41,16 +41,16 @@ const EditCategoryForm = ({ category, setShowModal }) => {
     e.preventDefault()
     setHasSubmitted(true)
     let payload = { name, headline, description, purpose, isPrivate, icon, ownerId, id: category.id }
-    if (!errors.length) {
-      let data = await dispatch(updateACategory(payload));
-      if (Array.isArray(data)) {
-        setErrors(data)
-      } else {
-        await dispatch(getACategory(category.id))
-        await history.push(`/category/${category.id}/about`)
-        await setShowModal(false)
-      }
+    // if (!errors.length) {
+    let data = await dispatch(updateACategory(payload));
+    if (Array.isArray(data)) {
+      setErrors(data)
+    } else {
+      await dispatch(getACategory(category.id))
+      await history.push(`/category/${category.id}/about`)
+      await setShowModal(false)
     }
+    // }
   }
 
   function iconSelector(image) {
@@ -86,7 +86,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
           ))}
         </div>)}
         <div className='category-form-sections'>
-          <label className='category-form-labels'>Category Name <p className='category-form-required-text'>* required</p></label>
+          <label className='category-form-labels'>Category Name <p className='category-form-required-text'>*</p></label>
           <input
             maxLength={100}
             type='text'

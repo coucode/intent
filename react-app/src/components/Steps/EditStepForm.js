@@ -20,15 +20,15 @@ const EditStepForm = ({ category, topic, step }) => {
     setHasSubmitted(true)
 
     let payload = { id: step.id, topicId: topic.id, stepNumber, summary, description }
-    if (!errors.length) {
-      let data = await dispatch(updateAStep(payload));
-      if (Array.isArray(data)) {
-        setErrors(data)
-      } else {
-        await dispatch(getAStep(step.id))
-        await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
-      }
+    // if (!errors.length) {
+    let data = await dispatch(updateAStep(payload));
+    if (Array.isArray(data)) {
+      setErrors(data)
+    } else {
+      await dispatch(getAStep(step.id))
+      await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
     }
+    // }
   }
 
   function charRemaining(max, input) {
@@ -87,7 +87,7 @@ const EditStepForm = ({ category, topic, step }) => {
             name='description'
             onChange={(e) => setDescription(e.target.value)}
             value={description}
-            placeholder="Description of the step"
+            placeholder="Description of the step (Optional)"
             className='create-step-inputs-right'
           >
           </textarea>

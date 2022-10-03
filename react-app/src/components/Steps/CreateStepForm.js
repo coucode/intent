@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createAStep, getAStep } from '../../store/step'
@@ -20,15 +20,19 @@ const CreateStepForm = ({ category, topic }) => {
     setHasSubmitted(true)
 
     let payload = { topicId: topic.id, stepNumber, summary, description }
-    if (!errors.length) {
-      let data = await dispatch(createAStep(payload));
-      if (Array.isArray(data)) {
-        setErrors(data)
-      } else {
-        await dispatch(getAStep(data.id))
-        await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
-      }
+    // if (!errors.length) {
+    let data = await dispatch(createAStep(payload));
+    if (Array.isArray(data)) {
+      setErrors(data)
+    } else {
+      await dispatch(getAStep(data.id))
+      setStepNumber('')
+      setSummary('')
+      setDescription('')
+      setErrors('')
+      await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
     }
+    // }
   }
 
   function charRemaining(max, input) {
@@ -57,10 +61,10 @@ const CreateStepForm = ({ category, topic }) => {
             id='right-border'
           >
           </input>
-          <p className='step-form-required-text'>* required</p>
+          <p className='step-form-required-text'>*</p>
         </div>
         <div className='create-step-input-container'>
-          <input
+          <textarea
             maxLength={100}
             type='text'
             name='summary'
@@ -70,22 +74,22 @@ const CreateStepForm = ({ category, topic }) => {
             className='create-step-inputs'
             id='right-border'
           >
-          </input>
-            <p className='step-form-required-text'>* required</p>
-            <p className='create-step-char-remaining' id="dual">{charRemaining(100, summary)} characters remaining</p>
+          </textarea>
+          <p className='step-form-required-text'>*</p>
+          <p className='create-step-char-remaining' id="dual">{charRemaining(100, summary)} characters remaining</p>
         </div>
         <div className='create-step-input-container'>
-          <input
+          <textarea
             maxLength={100}
             type='text'
             name='description'
             onChange={(e) => setDescription(e.target.value)}
             value={description}
-            placeholder="Description of the step"
+            placeholder="Description of the step (Optional)"
             className='create-step-inputs-right'
           >
-          </input>
-          <p className='create-step-char-remaining'>{charRemaining(100, description)} characters remaining</p>
+          </textarea>
+          <p className='create-step-char-remaining'>{charRemaining(1000, description)} characters remaining</p>
         </div>
         <button type='submit' className='create-step-button'><i className="fa-solid fa-check fa-xl"></i></button>
 

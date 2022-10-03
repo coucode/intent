@@ -7,13 +7,13 @@ from app.forms.topic_form import TopicForm
 
 topic_routes = Blueprint('topic', __name__)
 
-# Gets all categories
+# Gets all topics
 @topic_routes.route("")
 def all_topics():
   topics = [topic.to_dict() for topic in Topic.query.all()]
   return {"topics": topics}
 
-# Gets one category
+# Gets one topic
 @topic_routes.route("/<int:id>")
 def one_topic(id):
   topic = Topic.query.get(id)

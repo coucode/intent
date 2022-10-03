@@ -5,7 +5,7 @@ import { createATopic, getATopic } from '../../../store/topic';
 import '../TopicStyles/TopicForms.css'
 
 
-const CreateTopicForm = ({setShowModal, category}) => {
+const CreateTopicForm = ({ setShowModal, category }) => {
   const user = useSelector(state => state.session.user)
   const history = useHistory()
   const dispatch = useDispatch();
@@ -29,16 +29,14 @@ const CreateTopicForm = ({setShowModal, category}) => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    let payload = { name, categoryId: category.id, ownerId: user.id}
-    if (!errors.length) {
-      let data = await dispatch(createATopic(payload));
-      if (Array.isArray(data)) {
-        setErrors(data)
-      } else {
-        await dispatch(getATopic(data.id))
-        await history.push(`/category/${category.id}/topics/${data.id}/preview`)
-        await setShowModal(false)
-      }
+    let payload = { name, categoryId: category.id, ownerId: user.id }
+    let data = await dispatch(createATopic(payload));
+    if (Array.isArray(data)) {
+      setErrors(data)
+    } else {
+      await dispatch(getATopic(data.id))
+      await history.push(`/category/${category.id}/topics/${data.id}/preview`)
+      await setShowModal(false)
     }
   }
   function charRemaining(max, input) {
@@ -76,7 +74,7 @@ const CreateTopicForm = ({setShowModal, category}) => {
           </input>
           <p className='topic-form-char-remaining-text'>{charRemaining(100, name)} characters remaining</p>
         </div>
-        <div className='topic-form-button-container'> 
+        <div className='topic-form-button-container'>
           <button type='submit' className={`${buttonChange}`}>Submit</button>
         </div>
       </form>

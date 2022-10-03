@@ -75,6 +75,7 @@
   font-size: 14px;
   resize: none;
   font-family: var(--main-fonts);
+  padding-top: 10px;
 }
 
 #right-border {
@@ -100,6 +101,7 @@
   font-size: 14px;
   resize: none;
   font-family: var(--main-fonts);
+  padding-top: 10px;
 }
 
 .create-step-button {
@@ -137,4 +139,10 @@
   font-size: 24px;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 16px;
+}
+
+.available-steps {
+  font-size: 20px;
+  color: var(--orange-button-color);
 }
