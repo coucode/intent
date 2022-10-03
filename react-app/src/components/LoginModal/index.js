@@ -7,7 +7,7 @@ function LoginModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Log In</button>
+      <button onClick={() => setShowModal(true)} className='splash-buttons' id='splash-teal'>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm setShowModal={setShowModal}/>
