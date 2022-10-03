@@ -29,6 +29,9 @@ function EditStepList({ category, topic }) {
 
   return loaded && filtered ? (
     <>
+    <div className='available-steps'>
+      {filtered.length} {Number(filtered.length) === 1 ? "step" : "steps"}
+    </div>
       {
         filtered.map(step => {
           return (

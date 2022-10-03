@@ -1,6 +1,6 @@
 .topic-form-container {
   width: 50vw;
-  height: 20vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,7 +28,6 @@ i.fa-solid.fa-xmark.fa-lg {
 }
 
 .topic-form-inner-container {
-  margin-top: 15px;
   padding: 5px;
 }
 
