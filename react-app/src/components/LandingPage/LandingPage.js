@@ -7,6 +7,7 @@ import CategoryDetail from '../Categories/CategoryDetail'
 import TopicDetail from '../Topics/TopicDetail'
 import { getAllCategories } from "../../store/category";
 import { getAllTopics } from "../../store/topic";
+import LandingPageHome from "./LandingPageHome";
 
 function LandingPage() {
   const dispatch = useDispatch()
@@ -70,7 +71,7 @@ function LandingPage() {
               <TopicDetail topics={topicArr}/>
             </Route>
             <Route>
-              <h1>Click on a Category to get started!</h1>
+              <LandingPageHome />
             </Route>
           </Switch>
         </div>

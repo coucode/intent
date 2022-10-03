@@ -1,0 +1,26 @@
+.lph-container {
+  padding: 36px;
+}
+
+.lph-content {
+  padding: 12px;
+}
+
+.lph-header-container {
+  border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+}
+
+.lph-headers {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--teal-button-color);
+}
+
+.lph-text-container {
+  padding: 10px 2px;
+}
+
+.lph-text {
+  font-size: 16px;
+  color: var(--grey-accent-font-color);
+}
