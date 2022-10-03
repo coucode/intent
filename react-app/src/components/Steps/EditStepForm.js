@@ -63,10 +63,10 @@ const EditStepForm = ({ category, topic, step }) => {
             id='right-border'
           >
           </input>
-          <p className='step-form-required-text'>* required</p>
+          <p className='step-form-required-text'>*</p>
         </div>
         <div className='create-step-input-container'>
-          <input
+          <textarea
             maxLength={100}
             type='text'
             name='summary'
@@ -76,12 +76,12 @@ const EditStepForm = ({ category, topic, step }) => {
             className='create-step-inputs'
             id='right-border'
           >
-          </input>
-          <p className='step-form-required-text'>* required</p>
+          </textarea>
+          <p className='step-form-required-text'>*</p>
           <p className='create-step-char-remaining' id="dual">{charRemaining(100, summary)} characters remaining</p>
         </div>
         <div className='create-step-input-container'>
-          <input
+          <textarea
             maxLength={100}
             type='text'
             name='description'
@@ -90,8 +90,8 @@ const EditStepForm = ({ category, topic, step }) => {
             placeholder="Description of the step"
             className='create-step-inputs-right'
           >
-          </input>
-          <p className='create-step-char-remaining'>{charRemaining(100, description)} characters remaining</p>
+          </textarea>
+          <p className='create-step-char-remaining'>{charRemaining(1000, description)} characters remaining</p>
         </div>
         <button type='submit' className='create-step-button'><i className="fa-solid fa-check fa-xl"></i></button>
         <button type='button' onClick={handleDeleteClick} className='delete-set-button'><i className="fa-solid fa-trash-can fa-xl"></i></button>
