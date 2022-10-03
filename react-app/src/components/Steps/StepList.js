@@ -41,8 +41,7 @@ function StepList({ category, topic }) {
           )
         })
       } */}
-      {/* <StepCarousel steps={filtered}/> */}
-      <p>UNDER CONSTRUCTION</p>
+      <StepCarousel steps={filtered}/>
     </div>
   ) : (
     <h1>Loading...</h1>
