@@ -47,7 +47,7 @@ function SplashPage() {
     ]
     count.current++
     let calc = count.current % 8
-    let interval = setInterval(() => { setImage(images[calc]) }, 3000)
+    let interval = setInterval(() => { setImage(images[calc]) }, 10000)
     return () => {
       clearInterval(interval)
     }
