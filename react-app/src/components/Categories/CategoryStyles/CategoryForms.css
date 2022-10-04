@@ -56,8 +56,9 @@ i.fa-solid.fa-xmark.fa-lg {
 
 .category-form-inputs::placeholder {
   color: var(--input-font-color);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
+  font-family: var(--main-fonts);
 }
 
 .category-form-inputs {
@@ -72,8 +73,9 @@ i.fa-solid.fa-xmark.fa-lg {
 
 .category-form-textarea::placeholder {
   color: var(--input-font-color);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
+  font-family: var(--main-fonts);
 }
 
 .category-form-textarea {
