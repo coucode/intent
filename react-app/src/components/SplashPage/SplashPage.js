@@ -12,7 +12,7 @@ function SplashPage() {
   const history = useHistory()
 
   let count = useRef(0)
-  const [image, setImage] = useState('/static/images/splashpage/1.jpg')
+  const [image, setImage] = useState('/static/images/splashpage/8.jpg')
 
   let sessionLinks = (
     <div className='splash-start-container'>
@@ -34,24 +34,24 @@ function SplashPage() {
     )
   }
 
-  useEffect(() => {
-    const images = [
-      "/static/images/splashpage/1.jpg",
-      "/static/images/splashpage/2.jpg",
-      "/static/images/splashpage/3.jpg",
-      "/static/images/splashpage/4.jpg",
-      "/static/images/splashpage/5.jpg",
-      "/static/images/splashpage/6.jpg",
-      "/static/images/splashpage/7.jpg",
-      "/static/images/splashpage/8.jpg",
-    ]
-    count.current++
-    let calc = count.current % 8
-    let interval = setInterval(() => { setImage(images[calc]) }, 3000)
-    return () => {
-      clearInterval(interval)
-    }
-  }, [image])
+  // useEffect(() => {
+  //   const images = [
+  //     "/static/images/splashpage/1.jpg",
+  //     "/static/images/splashpage/2.jpg",
+  //     "/static/images/splashpage/3.jpg",
+  //     "/static/images/splashpage/4.jpg",
+  //     "/static/images/splashpage/5.jpg",
+  //     "/static/images/splashpage/6.jpg",
+  //     "/static/images/splashpage/7.jpg",
+  //     "/static/images/splashpage/8.jpg",
+  //   ]
+  //   count.current++
+  //   let calc = count.current % 8
+  //   let interval = setInterval(() => { setImage(images[calc]) }, 3000)
+  //   return () => {
+  //     clearInterval(interval)
+  //   }
+  // }, [image])
 
   return (
     <div className='splash-container'>
