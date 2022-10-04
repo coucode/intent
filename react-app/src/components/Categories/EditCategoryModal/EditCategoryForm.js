@@ -24,7 +24,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
   const [headline, setHeadline] = useState(category.headline || '')
   const [description, setDescription] = useState(category.description || '')
   const [purpose, setPurpose] = useState(category.purpose || '')
-  const [isPrivate, setPrivate] = useState(category.isPrivate || false)
+  const [isPrivate, setPrivate] = useState(category.isPrivate || null)
   const [icon, setIcon] = useState(category.icon || '')
   let ownerId = user.id
 
@@ -169,6 +169,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
               name='privacy'
               value='yes'
               onClick={(e) => setPrivate(true)}
+              defaultChecked={isPrivate === true ? true : false}
             >
             </input>
             <label className='category-form-radio-text'>Yes</label>
@@ -177,6 +178,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
               name='privacy'
               value='no'
               onClick={(e) => setPrivate(false)}
+              defaultChecked={isPrivate === true ? false : true}
             >
             </input>
             <label className='category-form-radio-text'>No</label>
