@@ -55,6 +55,7 @@ function SplashPage() {
 
   return (
     <div className='splash-container'>
+      {/* NAVIGATION BAR */}
       <nav className='splash-nav'>
         <div className='splash-logo'>
           <i className="fa-solid fa-meteor fa-2xl" id='splash-logo-color'></i>
@@ -62,6 +63,8 @@ function SplashPage() {
         </div>
         {sessionLinks}
       </nav>
+
+      {/* BACKGROUND IMAGE AND MAIN AD */}
       <div className='splash-main-content'>
         <div className='splash-quote-container'>
           <h1 className='splash-quote'>Learn</h1>
@@ -71,9 +74,10 @@ function SplashPage() {
           className='splash-images'
           style={{ backgroundImage: `url("${image}")` }}
         >
-          {/* <img src='/static/images/splashpage/8.jpg' alt='studying' className='splash-images' /> */}
         </div>
       </div>
+
+      {/* DEVELOPER INFORMATION */}
       <div className='splash-dev-info'>
         <div className='splash-dev-text'>
           <p className='splash-dev-inner-text'>Developer:</p>
@@ -90,6 +94,7 @@ function SplashPage() {
         </div>
       </div>
 
+      
 
     </div>
   )
