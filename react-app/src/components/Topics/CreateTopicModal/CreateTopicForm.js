@@ -63,7 +63,7 @@ const CreateTopicForm = ({ setShowModal, category }) => {
           ))}
         </div>)}
         <div className='topic-form-sections'>
-          <label className='topic-form-labels'>Topic Name <p className='topic-form-required-text'>* required</p></label>
+          <label className='topic-form-labels'>Topic Name <p className='topic-form-required-text'>*</p></label>
           <input
             maxLength={100}
             type='text'

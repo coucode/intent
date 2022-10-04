@@ -69,10 +69,14 @@ i.fa-solid.fa-xmark.fa-lg {
   flex-direction: row;
 }
 
+.signup-form-inputs::placeholder {
+  color: var(--input-font-color);
+}
+
 .signup-form-inputs {
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  color: var(--input-font-color);
+  color: var(--blue-accent-font-color);
   font-size: 18px;
   font-weight: 700;
   outline: none;

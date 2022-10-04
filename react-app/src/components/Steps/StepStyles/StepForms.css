@@ -67,6 +67,12 @@
   margin-right: 5px;
 }
 
+.create-step-inputs::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .create-step-inputs {
   height: 84px;
   border: 2px solid #cccccc;
@@ -76,10 +82,18 @@
   resize: none;
   font-family: var(--main-fonts);
   padding-top: 10px;
+  color: var(--blue-accent-font-color);
+  font-weight: 700;
 }
 
 #right-border {
   border-right: 5px solid #cccccc;
+}
+
+.create-step-inputs-left::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .create-step-inputs-left {
@@ -89,6 +103,14 @@
   border: 2px solid #cccccc;
   padding-left: 15px;
   font-family: var(--main-fonts);
+  color: var(--blue-accent-font-color);
+  font-weight: 700;
+}
+
+.create-step-inputs-right::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .create-step-inputs-right {
@@ -102,6 +124,8 @@
   resize: none;
   font-family: var(--main-fonts);
   padding-top: 10px;
+  color: var(--blue-accent-font-color);
+  font-weight: 600;
 }
 
 .create-step-button {
