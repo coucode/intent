@@ -68,7 +68,7 @@
 
 /* Main Content */
 .splash-main-content {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px - 150px);
   position: static;
 }
 
@@ -91,7 +91,7 @@
 .splash-quote-container {
   position: absolute;
   z-index: 1;
-  margin-top: 65vh;
+  margin-top: calc(100vh - 80px - 150px - 26vh);
   background-color: rgba(219, 219, 219, 0.005);
 }
 
@@ -101,8 +101,7 @@
   color: #000;
 }
 
-.splash-additional-content {
-  position: relative;
-  height: calc(100vh - 80px);
-  border: 5px solid red;
+.splash-dev-info{
+  height: 150px;
+
 }
