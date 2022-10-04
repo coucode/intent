@@ -45,7 +45,9 @@ const CreateTopicForm = ({ setShowModal, category }) => {
 
   return (
     <div className='topic-form-container'>
-      <div className='cancel-button-container'>
+      <div
+        className='cancel-button-container'
+      >
         <i
           className="fa-solid fa-xmark fa-lg"
           onClick={() => setShowModal(false)}

@@ -25,8 +25,10 @@ const EditStepForm = ({ category, topic, step }) => {
     if (Array.isArray(data)) {
       setErrors(data)
     } else {
+      window.alert("Successfully updated!")
       await dispatch(getAStep(step.id))
-      await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
+      setErrors('')
+      await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
     }
     // }
   }
