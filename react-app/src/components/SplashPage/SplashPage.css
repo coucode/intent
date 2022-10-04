@@ -46,7 +46,7 @@
   height: 100%;
   width: 125px;
   cursor: pointer;
-  opacity: 90%;
+  opacity: 0.9;
 }
 
 /* Container for Log In and Sign Up */
@@ -70,6 +70,8 @@
 .splash-main-content {
   height: calc(100vh - 80px - 150px);
   position: static;
+  display: flex;
+  align-items: flex-end;
 }
 
 .splash-images {
@@ -91,7 +93,6 @@
 .splash-quote-container {
   position: absolute;
   z-index: 1;
-  margin-top: calc(60vh - 80px - 150px);
   background-color: rgba(219, 219, 219, 0.005);
 }
 
