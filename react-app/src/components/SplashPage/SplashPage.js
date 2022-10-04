@@ -34,24 +34,24 @@ function SplashPage() {
     )
   }
 
-  // useEffect(() => {
-  //   const images = [
-  //     "/static/images/splashpage/1.jpg",
-  //     "/static/images/splashpage/2.jpg",
-  //     "/static/images/splashpage/3.jpg",
-  //     "/static/images/splashpage/4.jpg",
-  //     "/static/images/splashpage/5.jpg",
-  //     "/static/images/splashpage/6.jpg",
-  //     "/static/images/splashpage/7.jpg",
-  //     "/static/images/splashpage/8.jpg",
-  //   ]
-  //   count.current++
-  //   let calc = count.current % 8
-  //   let interval = setInterval(() => { setImage(images[calc]) }, 3000)
-  //   return () => {
-  //     clearInterval(interval)
-  //   }
-  // }, [image])
+  useEffect(() => {
+    const images = [
+      "/static/images/splashpage/1.jpg",
+      "/static/images/splashpage/2.jpg",
+      "/static/images/splashpage/3.jpg",
+      "/static/images/splashpage/4.jpg",
+      "/static/images/splashpage/5.jpg",
+      "/static/images/splashpage/6.jpg",
+      "/static/images/splashpage/7.jpg",
+      "/static/images/splashpage/8.jpg",
+    ]
+    count.current++
+    let calc = count.current % 8
+    let interval = setInterval(() => { setImage(images[calc]) }, 3000)
+    return () => {
+      clearInterval(interval)
+    }
+  }, [image])
 
   return (
     <div className='splash-container'>
@@ -69,12 +69,25 @@ function SplashPage() {
         </div>
         <div
           className='splash-images'
-          style={{ backgroundImage: `url("${image}")` }}
+          // style={{ backgroundImage: `url("${image}")` }}
         >
+          <img src={image} alt='studying' className='splash-images' />
         </div>
       </div>
       <div className='splash-dev-info'>
-        <p>Hello</p>
+        <div className='splash-dev-text'>
+          <p className='splash-dev-inner-text'>Developer:</p>
+          <p className='splash-dev-inner-text'>Cecilia Ou</p>
+
+        </div>
+        <div className='splash-links'>
+          <a href="https://github.com/coucode">
+            <i className="fa-brands fa-square-github fa-2xl devLinks"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ceciliasou">
+            <i className="fa-brands fa-linkedin fa-2xl devLinks"></i>
+          </a>
+        </div>
       </div>
 
 
