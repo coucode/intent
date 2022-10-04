@@ -91,7 +91,7 @@
 .splash-quote-container {
   position: absolute;
   z-index: 1;
-  margin-top: calc(100vh - 80px - 150px - 26vh);
+  margin-top: calc(60vh - 80px - 150px);
   background-color: rgba(219, 219, 219, 0.005);
 }
 
@@ -101,7 +101,50 @@
   color: #000;
 }
 
+/* Developer footer */
+
 .splash-dev-info{
   height: 150px;
+  background-color: var(--blue-accent-font-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
+.splash-dev-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--main-fonts);
+}
+
+.splash-dev-inner-text {
+  margin: 0;
+  color: var(--light-font-color);
+}
+
+.splash-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 8vw;
+  height: auto;
+  text-decoration: none;
+}
+.splash-links>a {
+  text-decoration: none;
+}
+
+.devLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  cursor: pointer;
+  color: var(--light-font-color);
+  text-decoration: none;
 }
