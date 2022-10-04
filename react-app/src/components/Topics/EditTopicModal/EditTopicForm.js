@@ -5,7 +5,7 @@ import { updateATopic, getATopic } from '../../../store/topic';
 import '../TopicStyles/TopicForms.css'
 
 
-const EditTopicForm = ({setShowModal, category, topic}) => {
+const EditTopicForm = ({ setShowModal, category, topic }) => {
   const user = useSelector(state => state.session.user)
   const history = useHistory()
   const dispatch = useDispatch();
@@ -28,16 +28,16 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
     e.preventDefault()
     setHasSubmitted(true)
 
-    let payload = { name, categoryId: topic.categoryId, ownerId: user.id, id: topic.id}
+    let payload = { name, categoryId: topic.categoryId, ownerId: user.id, id: topic.id }
     // if (!errors.length) {
-      let data = await dispatch(updateATopic(payload));
-      if (Array.isArray(data)) {
-        setErrors(data)
-      } else {
-        await dispatch(getATopic(topic.id))
-        await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
-        await setShowModal(false)
-      }
+    let data = await dispatch(updateATopic(payload));
+    if (Array.isArray(data)) {
+      setErrors(data)
+    } else {
+      await dispatch(getATopic(topic.id))
+      await history.push(`/category/${category.id}/topics/${topic.id}/preview`)
+      await setShowModal(false)
+    }
     // }
   }
   function charRemaining(max, input) {
@@ -46,7 +46,9 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
 
   return (
     <div className='topic-form-container'>
-      <div className='cancel-button-container'>
+      <div
+        className='cancel-button-container'
+      >
         <i
           className="fa-solid fa-xmark fa-lg"
           onClick={() => setShowModal(false)}
@@ -75,7 +77,7 @@ const EditTopicForm = ({setShowModal, category, topic}) => {
           </input>
           <p className='topic-form-char-remaining-text'>{charRemaining(100, name)} characters remaining</p>
         </div>
-        <div className='topic-form-button-container'> 
+        <div className='topic-form-button-container'>
           <button type='submit' className={`${buttonChange}`}>Submit</button>
         </div>
       </form>
