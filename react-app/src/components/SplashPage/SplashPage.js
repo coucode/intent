@@ -69,9 +69,9 @@ function SplashPage() {
         </div>
         <div
           className='splash-images'
-          // style={{ backgroundImage: `url("${image}")` }}
+          style={{ backgroundImage: `url("${image}")` }}
         >
-          <img src='/static/images/splashpage/8.jpg' alt='studying' className='splash-images' />
+          {/* <img src='/static/images/splashpage/8.jpg' alt='studying' className='splash-images' /> */}
         </div>
       </div>
       <div className='splash-dev-info'>
