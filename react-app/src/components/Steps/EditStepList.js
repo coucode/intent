@@ -27,13 +27,19 @@ function EditStepList({ category, topic }) {
 
   filtered = stepArr.filter(step => step.topicId === topic?.id)
 
-  return loaded && filtered ? (
+  function compare(a, b) {
+    return a.stepNumber - b.stepNumber
+  }
+
+  let sorted = filtered?.sort(compare)
+
+  return loaded && sorted ? (
     <>
     <div className='available-steps'>
-      {filtered.length} {Number(filtered.length) === 1 ? "step" : "steps"}
+      {sorted.length} {Number(sorted.length) === 1 ? "step" : "steps"}
     </div>
       {
-        filtered.map(step => {
+        sorted.map(step => {
           return (
             <div key={step.id}>
               <EditStepForm category={category} topic={topic} step={step} />
