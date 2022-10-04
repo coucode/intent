@@ -12,7 +12,7 @@ function SplashPage() {
   const history = useHistory()
 
   let count = useRef(0)
-  const [image, setImage] = useState('https://images.pexels.com/photos/4458554/pexels-photo-4458554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')
+  const [image, setImage] = useState('/static/images/splashpage/1.jpg')
 
   let sessionLinks = (
     <div className='splash-start-container'>
@@ -36,14 +36,17 @@ function SplashPage() {
 
   useEffect(() => {
     const images = [
-      "https://images.pexels.com/photos/4458554/pexels-photo-4458554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/5554289/pexels-photo-5554289.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/4473905/pexels-photo-4473905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/5702419/pexels-photo-5702419.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "https://images.pexels.com/photos/7972316/pexels-photo-7972316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "/static/images/splashpage/1.jpg",
+      "/static/images/splashpage/2.jpg",
+      "/static/images/splashpage/3.jpg",
+      "/static/images/splashpage/4.jpg",
+      "/static/images/splashpage/5.jpg",
+      "/static/images/splashpage/6.jpg",
+      "/static/images/splashpage/7.jpg",
+      "/static/images/splashpage/8.jpg",
     ]
     count.current++
-    let calc = count.current % 5
+    let calc = count.current % 8
     let interval = setInterval(() => { setImage(images[calc]) }, 3000)
     return () => {
       clearInterval(interval)
