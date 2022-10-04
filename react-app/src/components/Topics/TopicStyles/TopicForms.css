@@ -10,10 +10,17 @@
 .cancel-button-container {
   display: flex;
   justify-content: flex-end;
+  height: 25px;
+  align-items: center;
 }
 
 i.fa-solid.fa-xmark.fa-lg {
   color: var(--dark-font-color);
+  cursor: pointer;
+}
+
+i.fa-solid.fa-xmark.fa-lg:hover{
+  color: var(--orange-button-color);
 }
 
 /* Form Header */
