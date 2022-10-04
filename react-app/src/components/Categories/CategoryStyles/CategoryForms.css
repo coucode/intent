@@ -54,23 +54,35 @@ i.fa-solid.fa-xmark.fa-lg {
   margin-bottom: 5px;
 }
 
+.category-form-inputs::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .category-form-inputs {
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  color: var(--input-font-color);
+  color: var(--blue-accent-font-color);
   font-size: 18px;
   font-weight: 700;
   outline: none;
   padding: 12px 18px;
 }
 
+.category-form-textarea::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .category-form-textarea {
   font-family: var(--main-fonts);
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  color: var(--input-font-color);
+  color: var(--blue-accent-font-color);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   outline: none;
   padding: 12px 18px;
   resize: none;
@@ -191,7 +203,7 @@ i.fa-solid.fa-xmark.fa-lg {
   background-color: rgba(128, 128, 128, 0.559);
 }
 
-.fa-solid.fa-plus{
+.fa-solid.fa-plus {
   padding-right: 10px;
 }
 

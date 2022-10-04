@@ -54,16 +54,23 @@ i.fa-solid.fa-xmark.fa-lg {
   margin-bottom: 10px;
 }
 
+.login-form-inputs::placeholder {
+  color: var(--input-font-color);
+}
+
+
 .login-form-inputs {
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  color: var(--input-font-color);
+  color: var(--blue-accent-font-color);
   font-size: 18px;
   font-weight: 700;
   outline: none;
   padding: 12px 18px;
   margin-bottom: 10px;
 }
+
+
 
 /* Button Styling */
 .login-form-button-container {

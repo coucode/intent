@@ -19,7 +19,7 @@ i.fa-solid.fa-xmark.fa-lg {
   cursor: pointer;
 }
 
-i.fa-solid.fa-xmark.fa-lg:hover{
+i.fa-solid.fa-xmark.fa-lg:hover {
   color: var(--orange-button-color);
 }
 
@@ -60,10 +60,16 @@ i.fa-solid.fa-xmark.fa-lg:hover{
   margin-bottom: 20px;
 }
 
+.topic-form-inputs::placeholder {
+  color: var(--input-font-color);
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .topic-form-inputs {
   border: var(--input-border);
   border-radius: var(--input-border-radius);
-  color: var(--input-font-color);
+  color: var(--blue-accent-font-color);
   font-size: 18px;
   font-weight: 700;
   outline: none;
