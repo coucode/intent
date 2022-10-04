@@ -80,7 +80,7 @@ const CreateStepForm = ({ category, topic }) => {
         </div>
         <div className='create-step-input-container'>
           <textarea
-            maxLength={100}
+            maxLength={1000}
             type='text'
             name='description'
             onChange={(e) => setDescription(e.target.value)}
