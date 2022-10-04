@@ -56,7 +56,7 @@ const CreateStepForm = ({ category, topic }) => {
             name='stepNumber'
             onChange={(e) => setStepNumber(e.target.value)}
             value={stepNumber}
-            placeholder="1"
+            placeholder="Step number goes here"
             className='create-step-inputs-left'
             id='right-border'
           >
