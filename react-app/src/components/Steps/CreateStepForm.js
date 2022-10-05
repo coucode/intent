@@ -41,6 +41,7 @@ const CreateStepForm = ({ category, topic, allSteps }) => {
       setSummary('')
       setDescription('')
       setErrors('')
+      setStepCheck('')
       await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
     }
     }

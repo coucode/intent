@@ -48,6 +48,17 @@ function StepCarousel({ steps }) {
     }
   }
 
+  if (steps.length === 0){
+    return (
+      <div className='no-steps'>
+        <h1>Whoops! </h1>
+        <h1>Looks like this topic does not have steps.</h1>
+        <h1>Click on Edit Steps above to add some steps!</h1>
+        <i className="fa-solid fa-meteor fa-10x fa-beat-fade no-step-icon"></i>
+      </div>
+    )
+  }
+
   return (
     <div className='sc-container'>
       Click on the grey block to reveal the answer!
