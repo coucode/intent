@@ -15,10 +15,10 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     # Add other seed functions here
-    seed_categories()
-    seed_topics()
-    seed_steps()
-    seed_scores()
+    # seed_categories()
+    # seed_topics()
+    # seed_steps()
+    # seed_scores()
 
 
 # Creates the `flask seed undo` command
@@ -26,7 +26,7 @@ def seed():
 def undo():
     undo_users()
     # Add other undo functions here
-    undo_categories()
-    undo_topics()
-    undo_steps()
-    undo_scores()
+    # undo_categories()
+    # undo_topics()
+    # undo_steps()
+    # undo_scores()
