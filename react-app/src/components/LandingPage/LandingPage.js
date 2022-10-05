@@ -18,6 +18,7 @@ function LandingPage() {
   const topicArr = Object.values(topicObj)
   const [showNav, setShowNav] = useState(true)
 
+
   if (!user) {
     <Redirect to="/" />
   }
@@ -25,7 +26,7 @@ function LandingPage() {
   useEffect(() => {
     dispatch(getAllCategories())
     dispatch(getAllTopics())
-  },[dispatch])
+  }, [dispatch])
 
   function openNavButton() {
     if (showNav) {
@@ -33,7 +34,7 @@ function LandingPage() {
       return (
         <i
           className="fa-solid fa-angles-right"
-          onClick={(e) => setShowNav(true) }
+          onClick={(e) => setShowNav(true)}
         ></i>
       )
     }
@@ -52,23 +53,23 @@ function LandingPage() {
         </div>
         <div className="landing-inner-right-container">
           <Switch>
-            <Route exact path='/category/:id'>
+            <Route exact path='/category/:categoryId'>
               <CategoryDetail categories={categoryArr} />
             </Route>
-            <Route exact path='/category/:id/about'>
+            <Route exact path='/category/:categoryId/about'>
               <CategoryDetail categories={categoryArr} />
             </Route>
-            <Route exact path='/category/:id/topics'>
+            <Route exact path='/category/:categoryId/topics'>
               <CategoryDetail categories={categoryArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id'>
-              <TopicDetail topics={topicArr}/>
+              <TopicDetail topics={topicArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/preview'>
-              <TopicDetail topics={topicArr}/>
+              <TopicDetail topics={topicArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/steps/edit'>
-              <TopicDetail topics={topicArr}/>
+              <TopicDetail topics={topicArr} />
             </Route>
             <Route>
               <LandingPageHome />
