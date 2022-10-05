@@ -14,6 +14,8 @@ function LandingPageHome() {
         <div className='lph-text-container'>
           <p className='lph-text'>
             Intent allows learners to commit steps of a procedure or task to memory. 
+            Intent is modeled after flashcards, but with the added functionality of 
+            sequence tracking. 
             Through Intent, users are able to complete procedures and tasks more 
             quickly and efficiently than alone.
           </p>
