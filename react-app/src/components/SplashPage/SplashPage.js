@@ -81,7 +81,7 @@ function SplashPage() {
       <div className='splash-dev-info'>
         <div className='splash-dev-text'>
           <p className='splash-dev-inner-text'>Developer:</p>
-          <p className='splash-dev-inner-text'>Cecilia Ou</p>
+          <p className='splash-dev-inner-text' style={{color: "var(--orange-button-color)", fontSize: '30px'}}>Cecilia Ou</p>
 
         </div>
         <div className='splash-links'>
