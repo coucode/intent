@@ -111,6 +111,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  
 }
 
 .splash-dev-text {
@@ -126,6 +127,7 @@
 .splash-dev-inner-text {
   margin: 0;
   color: var(--light-font-color);
+  font-size: 20px;
 }
 
 .splash-links {
@@ -135,7 +137,9 @@
   width: 8vw;
   height: auto;
   text-decoration: none;
+  margin-bottom: 10px;
 }
+
 .splash-links>a {
   text-decoration: none;
 }
