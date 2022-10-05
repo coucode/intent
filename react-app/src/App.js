@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
 import LandingPage from './components/LandingPage/LandingPage';
+import { NavContextProvider } from "./context/NavContext"
+
 
 function App() {
   const [currentUserIsLoaded, setCurrentUserIsLoaded] = useState(false);
@@ -22,7 +24,9 @@ function App() {
   const Home = () => {
     if (currentUser) {
       return (
-        <LandingPage />
+        <NavContextProvider>
+          <LandingPage />
+        </NavContextProvider>
       )
     } else {
       return (
