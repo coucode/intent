@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { updateAStep, getAStep, deleteAStep, getAllSteps } from '../../store/step'
 import './StepStyles/StepForms.css'
 
 
-const EditStepForm = ({ category, topic, step }) => {
+const EditStepForm = ({ category, topic, step, allSteps }) => {
   const history = useHistory()
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
@@ -14,23 +14,38 @@ const EditStepForm = ({ category, topic, step }) => {
   const [stepNumber, setStepNumber] = useState(step.stepNumber || '')
   const [summary, setSummary] = useState(step.summary || '')
   const [description, setDescription] = useState(step.description || '')
+  const [stepCheck, setStepCheck] = useState('')
+
+  let numbers = allSteps.map(step => step.stepNumber)
+
+  useEffect(() => {
+    if (Number(step.stepNumber !== Number(stepNumber))) {
+      if (numbers.includes(Number(stepNumber))) {
+        setStepCheck(`Step number ${stepNumber} already exists`)
+      } else {
+        setStepCheck('')
+      }
+    }
+  }, [stepNumber, step.stepNumber, numbers])
+
+
 
   const editStep = async (e) => {
     e.preventDefault()
     setHasSubmitted(true)
 
     let payload = { id: step.id, topicId: topic.id, stepNumber, summary, description }
-    // if (!errors.length) {
-    let data = await dispatch(updateAStep(payload));
-    if (Array.isArray(data)) {
-      setErrors(data)
-    } else {
-      window.alert("Successfully updated!")
-      await dispatch(getAStep(step.id))
-      setErrors('')
-      await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
+    if (!stepCheck.length) {
+      let data = await dispatch(updateAStep(payload));
+      if (Array.isArray(data)) {
+        setErrors(data)
+      } else {
+        window.alert("Successfully updated!")
+        await dispatch(getAStep(step.id))
+        setErrors('')
+        await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
+      }
     }
-    // }
   }
 
   function charRemaining(max, input) {
@@ -50,6 +65,11 @@ const EditStepForm = ({ category, topic, step }) => {
           <div key={ind} className='error-text'>{error.split(":")[1]}</div>
         ))}
       </div>)}
+      {stepCheck.length > 0 && (
+        <p className='error-text'>
+          {stepCheck}
+        </p>
+      )}
       <form onSubmit={editStep} className='create-step-form'>
         <p className='create-step-new-card-text'>Edit Step</p>
 

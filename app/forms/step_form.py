@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired, Length
+from app.models import Step
+
 
 class StepForm(FlaskForm):
   # form variables are in camelCase to better match the front end
