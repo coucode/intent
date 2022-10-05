@@ -106,7 +106,7 @@
 
 .splash-dev-info{
   height: 150px;
-  background-color: var(--blue-accent-font-color);
+  background-color: #324054;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

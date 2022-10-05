@@ -43,38 +43,54 @@ function NavBar({ setShowNav }) {
 
   return loaded && filtered ? (
     <div className='navbar'>
-      <div>
-        <div className='navbar-top-container'>
-          <NavLink to="/splashpage" className='navbar-logo-container'><i className="fa-solid fa-meteor fa-2xl"></i></NavLink>
-          <div className='user-profile-container'>
-            {/* <img src={user.image} alt="user" className='user-image' /> */}
-            {imageCheck()}
-            <div>
-              <p className='navbar-profile-text'>
-                {user.firstName} {user.lastName}
-              </p>
+      <div className='navbar-upper'>
+        <div>
+          <div className='navbar-top-container'>
+            <NavLink to="/splashpage" className='navbar-logo-container'><i className="fa-solid fa-meteor fa-2xl"></i></NavLink>
+            <div className='user-profile-container'>
+              {/* <img src={user.image} alt="user" className='user-image' /> */}
+              {imageCheck()}
+              <div>
+                <p className='navbar-profile-text'>
+                  {user.firstName} {user.lastName}
+                </p>
+              </div>
+            </div>
+            <div className='navbar-logout-container'>
+              <LogoutButton />
+            </div>
+            <div className='navbar-button-container'>
+              <i
+                className="fa-solid fa-angles-left"
+                onClick={(e) => setShowNav(false)}
+              ></i>
             </div>
           </div>
-          <div className='navbar-logout-container'>
-            <LogoutButton />
-          </div>
-          <div className='navbar-button-container'>
-            <i
-              className="fa-solid fa-angles-left"
-              onClick={(e) => setShowNav(false)}
-            ></i>
+        </div>
+        <div className='navbar-category-header-container'>
+          <div className='navbar-category-header-inner-container'>
+            <p className='navbar-category-text'>My Categories</p>
+            <p className='navbar-category-text' id='navbar-count'>({filtered.length})</p>
           </div>
         </div>
-      </div>
-      <div className='navbar-category-header-container'>
-        <div className='navbar-category-header-inner-container'>
-          <p className='navbar-category-text'>My Categories</p>
-          <p className='navbar-category-text' id='navbar-count'>({filtered.length})</p>
+        <div className='navbar-category-list-container'>
+          <CategoryListByUser categories={filtered} />
+          <CategoryFormModal />
         </div>
       </div>
-      <div className='navbar-category-list-container'>
-        <CategoryListByUser categories={filtered} />
-        <CategoryFormModal />
+      <div className='navbar-lower'>
+        <div className='splash-dev-text'>
+          <p className='splash-dev-inner-text'>Developer:</p>
+          <p className='splash-dev-inner-text' style={{ color: "var(--orange-button-color)", fontSize: '30px' }}>Cecilia Ou</p>
+        </div>
+        <div className='splash-links'>
+          <a href="https://github.com/coucode">
+            <i className="fa-brands fa-square-github fa-2xl devLinks"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ceciliasou">
+            <i className="fa-brands fa-linkedin fa-2xl devLinks"></i>
+          </a>
+        </div>
       </div>
     </div>
   ) : (

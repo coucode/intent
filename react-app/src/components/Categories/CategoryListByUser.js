@@ -1,14 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useDispatch } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getAllCategories } from "../../store/category"
+import { NavContext } from "../../context/NavContext";
 import './CategoryStyles/CategoryList.css'
+
 
 function CategoryListByUser({ categories }) {
   const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false)
-  const [activeNav, setActiveNav] = useState('')
-
+  const context = useContext(NavContext)
+  const { categoryIdContext, setCategoryIdContext } = context
 
   useEffect(() => {
     dispatch(getAllCategories())
@@ -19,7 +21,7 @@ function CategoryListByUser({ categories }) {
   }, [categories])
 
   function isActive(link) {
-    if (activeNav === link) {
+    if (categoryIdContext === link) {
       return 'active'
     } else {
       return 'inactive'
@@ -33,7 +35,7 @@ function CategoryListByUser({ categories }) {
           <div key={category.id}
             className='category-list-container'
             id={isActive(`${category.id}`)}
-            onClick={(e) => setActiveNav(`${category.id}`)}>
+            onClick={(e) => setCategoryIdContext(`${category.id}`)}>
             <NavLink to={`/category/${category.id}/about`} className='category-list-navtext'>
               <img src={category.icon} alt="category icon" className='category-list-icon' />
               <p className='category-list-text'>
