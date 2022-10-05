@@ -75,6 +75,7 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
 
         <div className='create-step-input-container'>
           <input
+            min='0'
             maxLength={100}
             type='number'
             name='stepNumber'
