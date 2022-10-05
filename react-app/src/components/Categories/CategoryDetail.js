@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Switch, Route } from "react-router-dom"
 import { deleteACategory, getACategory, getAllCategories } from "../../store/category"
 import EditCategoryModal from './EditCategoryModal'
 import TopicList from "../Topics/TopicList"
+import { NavContext } from "../../context/NavContext";
 import './CategoryStyles/CategoryDetail.css'
+
 
 function CategoryDetail({ categories }) {
   const dispatch = useDispatch()
@@ -17,6 +19,8 @@ function CategoryDetail({ categories }) {
   const [categoryLoaded, setCategoryLoaded] = useState(false)
   const [activeNav, setActiveNav] = useState('category-detail-headline')
   const [isOwner, setOwner] = useState(false)
+  const context = useContext(NavContext)
+  const { setCategoryIdContext } = context
 
 
   useEffect(() => {
@@ -31,6 +35,10 @@ function CategoryDetail({ categories }) {
       }
     }
   }, [category, user])
+
+  useEffect(() => {
+    setCategoryIdContext(categoryId)
+  }, [categoryId, setCategoryIdContext])
 
   function redirect() {
     setTimeout(() => { history.push(`/`) }, 1000)
@@ -72,7 +80,7 @@ function CategoryDetail({ categories }) {
   const handleDeleteClick = async (e) => {
     await dispatch(deleteACategory(categoryId))
     await dispatch(getAllCategories())
-    await history.push(`/`)
+    await history.push(`/landing`)
   }
 
   let overview = (

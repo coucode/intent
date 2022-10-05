@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "./NavBar";
 import './LandingPage.css'
@@ -43,7 +43,7 @@ function LandingPage() {
   return (
     <div className="landing-container">
       <div className="nav-bar-display" style={{ display: showNav ? 'flex' : 'none' }}>
-        <NavBar setShowNav={setShowNav} />
+          <NavBar setShowNav={setShowNav} />
       </div>
       <div className="landing-inner-container">
         <div className="landing-inner-left-container" style={{ display: showNav ? 'none' : 'flex' }}>
