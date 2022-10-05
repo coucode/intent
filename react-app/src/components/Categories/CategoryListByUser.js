@@ -19,7 +19,7 @@ function CategoryListByUser({ categories }) {
   }, [categories])
 
   function isActive(link) {
-    if (activeNav.includes(link)) {
+    if (activeNav === link) {
       return 'active'
     } else {
       return 'inactive'
