@@ -15,6 +15,7 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
   const [summary, setSummary] = useState(step.summary || '')
   const [description, setDescription] = useState(step.description || '')
   const [stepCheck, setStepCheck] = useState('')
+  const [success, setSuccess] = useState('')
 
   let numbers = allSteps.map(step => step.stepNumber)
 
@@ -40,10 +41,12 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
       if (Array.isArray(data)) {
         setErrors(data)
       } else {
-        window.alert("Successfully updated!")
+        setSuccess('Sucessfully updated!')
         await dispatch(getAStep(step.id))
         setErrors('')
+        setTimeout(() => setSuccess(''), 3000)
         await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
+
       }
     }
   }
@@ -65,11 +68,17 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
           <div key={ind} className='error-text'>{error.split(":")[1]}</div>
         ))}
       </div>)}
+      {hasSubmitted && success.length > 0 && (
+        <p className='success-text'>
+          Successfully Updated!
+        </p>
+      )}
       {stepCheck.length > 0 && (
         <p className='error-text'>
           {stepCheck}
         </p>
       )}
+
       <form onSubmit={editStep} className='create-step-form'>
         <p className='create-step-new-card-text'>Edit Step</p>
 

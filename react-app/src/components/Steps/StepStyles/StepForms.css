@@ -170,3 +170,8 @@
   font-size: 20px;
   color: var(--orange-button-color);
 }
+
+.success-text {
+  color: green;
+  font-size: 14px;
+}
