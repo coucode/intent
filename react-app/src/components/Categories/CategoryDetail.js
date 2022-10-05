@@ -41,7 +41,8 @@ function CategoryDetail({ categories }) {
   }, [categoryId, setCategoryIdContext])
 
   function redirect() {
-    setTimeout(() => { history.push(`/`) }, 1000)
+    setTimeout(() => { history.push(`/`) }, 100)
+    setCategoryIdContext(null)
   }
 
   let exists = false;
@@ -62,7 +63,6 @@ function CategoryDetail({ categories }) {
     )
   }
 
-
   if (!category && exists === 'checked') {
     return (
       <div>
@@ -80,7 +80,7 @@ function CategoryDetail({ categories }) {
   const handleDeleteClick = async (e) => {
     await dispatch(deleteACategory(categoryId))
     await dispatch(getAllCategories())
-    await history.push(`/landing`)
+    await history.push(`/`)
   }
 
   let overview = (
