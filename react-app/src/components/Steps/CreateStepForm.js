@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createAStep, getAStep } from '../../store/step'
 import './StepStyles/StepForms.css'
 
 
-const CreateStepForm = ({ category, topic }) => {
+const CreateStepForm = ({ category, topic, allSteps }) => {
   const history = useHistory()
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
@@ -14,13 +14,24 @@ const CreateStepForm = ({ category, topic }) => {
   const [stepNumber, setStepNumber] = useState('')
   const [summary, setSummary] = useState('')
   const [description, setDescription] = useState('')
+  const [stepCheck, setStepCheck] = useState('')
+
+  let numbers = allSteps.map(step => step.stepNumber)
+
+  useEffect(() => {
+    if (numbers.includes(Number(stepNumber))) {
+      setStepCheck(`Step number ${stepNumber} already exists`)
+    } else {
+      setStepCheck('')
+    }
+  }, [stepNumber, numbers])
 
   const createStep = async (e) => {
     e.preventDefault()
     setHasSubmitted(true)
 
     let payload = { topicId: topic.id, stepNumber, summary, description }
-    // if (!errors.length) {
+    if (!stepCheck.length) {
     let data = await dispatch(createAStep(payload));
     if (Array.isArray(data)) {
       setErrors(data)
@@ -32,7 +43,7 @@ const CreateStepForm = ({ category, topic }) => {
       setErrors('')
       await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
     }
-    // }
+    }
   }
 
   function charRemaining(max, input) {
@@ -46,11 +57,17 @@ const CreateStepForm = ({ category, topic }) => {
           <div key={ind} className='error-text'>{error.split(":")[1]}</div>
         ))}
       </div>)}
+      {stepCheck.length > 0 && (
+        <p className='error-text'>
+          {stepCheck}
+        </p>
+      )}
       <form onSubmit={createStep} className='create-step-form'>
         <p className='create-step-new-card-text'>New Step</p>
 
         <div className='create-step-input-container'>
           <input
+            min='0'
             maxLength={100}
             type='number'
             name='stepNumber'

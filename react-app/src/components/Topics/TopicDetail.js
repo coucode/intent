@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams, useHistory, NavLink, Route, Switch } from "react-router-dom"
 import { getACategory } from "../../store/category"
 import { deleteATopic, getATopic } from "../../store/topic"
+import { getAllSteps } from '../../store/step';
+
 import CreateStepForm from "../Steps/CreateStepForm"
 import EditStepList from "../Steps/EditStepList"
 import StepList from "../Steps/StepList"
@@ -15,16 +17,23 @@ function TopicDetail({topics}) {
   const { categoryId, id } = useParams()
   const user = useSelector(state => state.session.user)
   const categoryObj = useSelector(state => state.category)
-  const category = categoryObj[categoryId]
   const topicObj = useSelector(state => state.topics)
+  const allSteps = useSelector(state => state.steps)
+  
+  const category = categoryObj[categoryId]
   const topic = topicObj[id]
   const [topicLoaded, setTopicLoaded] = useState(false)
   const [isOwner, setOwner] = useState(false)
+
+  let stepArr;
+  let filtered;
 
 
   useEffect(() => {
     dispatch(getACategory(categoryId))
     dispatch(getATopic(id))
+    dispatch(getAllSteps())
+
   }, [dispatch, categoryId, id])
 
   useEffect(() => {
@@ -35,6 +44,17 @@ function TopicDetail({topics}) {
       }
     }
   }, [topic, user])
+
+  if (allSteps) {
+    stepArr = Object.values(allSteps)
+  }
+
+  filtered = stepArr.filter(step => step.topicId === topic?.id)
+  function compare(a, b) {
+    return a.stepNumber - b.stepNumber
+  }
+
+  let sorted = filtered?.sort(compare)
 
   function redirect() {
     setTimeout(() => { history.push(`/`) }, 1000)
@@ -121,7 +141,7 @@ function TopicDetail({topics}) {
           <Route exact path={`/category/${category.id}/topics/${topic.id}/steps/edit`}>
             <div className="create-step-form-container">
               <p className="step-form-header">Create a Step</p>
-              <CreateStepForm category={category} topic={topic} />
+              <CreateStepForm category={category} topic={topic} allSteps={sorted} />
             </div>
             <div className="edit-step-form-container">
               <p className="step-form-header">Edit Step(s)</p>

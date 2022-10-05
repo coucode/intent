@@ -9,19 +9,19 @@ import './CategoryStyles/CategoryDetail.css'
 function CategoryDetail({ categories }) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { id } = useParams()
+  const { categoryId } = useParams()
 
   const user = useSelector(state => state.session.user)
   const categoryObj = useSelector(state => state.category)
-  const category = categoryObj[id]
+  const category = categoryObj[categoryId]
   const [categoryLoaded, setCategoryLoaded] = useState(false)
   const [activeNav, setActiveNav] = useState('category-detail-headline')
   const [isOwner, setOwner] = useState(false)
 
 
   useEffect(() => {
-    dispatch(getACategory(id))
-  }, [dispatch, id])
+    dispatch(getACategory(categoryId))
+  }, [dispatch, categoryId])
 
   useEffect(() => {
     if (category) {
@@ -38,7 +38,7 @@ function CategoryDetail({ categories }) {
 
   let exists = false;
   categories.forEach((category) => {
-    if (Number(category.id) === Number(id)) {
+    if (Number(category.id) === Number(categoryId)) {
       exists = true;
     } else {
       exists = 'checked'
@@ -70,7 +70,7 @@ function CategoryDetail({ categories }) {
 
 
   const handleDeleteClick = async (e) => {
-    await dispatch(deleteACategory(id))
+    await dispatch(deleteACategory(categoryId))
     await dispatch(getAllCategories())
     await history.push(`/`)
   }
