@@ -99,7 +99,7 @@ function StepCarousel({ steps }) {
                         id='sc-description'
                         style={{ backgroundColor: `${descStyle}` }}
                         onClick={(e) => descStyle === '' ? setDescStyle("#555") : setDescStyle('')}>
-                        <p className='sc-inner-text'>{(step.description) ? step.description : "No Description Provied"}</p>
+                        <p className='sc-inner-text'>{(step.description) ? step.description : "No Description Provided"}</p>
                       </div>
 
                     </div>
