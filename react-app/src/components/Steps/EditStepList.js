@@ -42,7 +42,7 @@ function EditStepList({ category, topic }) {
         sorted.map(step => {
           return (
             <div key={step.id}>
-              <EditStepForm category={category} topic={topic} step={step} />
+              <EditStepForm category={category} topic={topic} step={step} allSteps={sorted}/>
             </div>
           )
         })

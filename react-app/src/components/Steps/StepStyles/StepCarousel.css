@@ -46,7 +46,7 @@
   background-color: aqua;
 }
 
-.sc-content{
+.sc-content {
   border: 2px solid #324a6b;
   width: 100%;
   border-radius: 8px;
@@ -80,6 +80,7 @@
   max-height: 30%;
   height: auto;
   max-width: 100%;
+  word-break: break-all;
 }
 
 .sc-inner-text {
@@ -89,9 +90,10 @@
   padding-bottom: 20px;
   max-width: 100%;
   width: 100%;
+  word-break: break-all;
 }
 
-.sc-inner-text-container#sc-description{
+.sc-inner-text-container#sc-description {
   height: auto;
   max-width: 100%;
   width: 100%;
@@ -118,4 +120,3 @@
 .sc-right-arrow {
   right: 40px;
 }
-
