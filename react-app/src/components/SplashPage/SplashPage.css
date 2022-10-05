@@ -149,3 +149,44 @@
   color: var(--light-font-color);
   text-decoration: none;
 }
+
+/* About the website */
+.splash-about {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light-font-color);
+}
+
+.splash-content {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash-header-container {
+  width: 80%;
+  border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+}
+
+.splash-headers {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--orange-button-color);
+  text-align: center;
+}
+
+.splash-text-container {
+  padding: 10px 2px;
+}
+
+.splash-text {
+  font-size: 16px;
+  color: var(--grey-accent-font-color);
+  text-align: center;
+  padding: 0 100px;
+}
