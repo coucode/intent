@@ -115,3 +115,11 @@ i.fa-solid.fa-xmark.fa-lg {
   cursor: not-allowed;
   width: 100%;
 }
+
+.signup-form-char-remaining-text {
+  margin: 0;
+  font-size: 12px;
+  color: var(--grey-accent-font-color);
+  text-align: end;
+  margin-top: -8px;
+}
