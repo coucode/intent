@@ -56,7 +56,7 @@ function CategoryDetail({ categories }) {
 
   if (categoryLoaded === true && isOwner === false) {
     return (
-      <div>
+      <div className="redirect-container">
         <h1>This Category does not exist...redirecting</h1>
         {redirect()}
       </div>
@@ -65,7 +65,7 @@ function CategoryDetail({ categories }) {
 
   if (!category && exists === 'checked') {
     return (
-      <div>
+      <div className="redirect-container">
         <h1>This Category does not exist...redirecting</h1>
         {redirect()}
       </div>
