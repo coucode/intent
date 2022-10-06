@@ -32,18 +32,18 @@ const CreateStepForm = ({ category, topic, allSteps }) => {
 
     let payload = { topicId: topic.id, stepNumber, summary, description }
     if (!stepCheck.length) {
-    let data = await dispatch(createAStep(payload));
-    if (Array.isArray(data)) {
-      setErrors(data)
-    } else {
-      await dispatch(getAStep(data.id))
-      setStepNumber('')
-      setSummary('')
-      setDescription('')
-      setErrors('')
-      setStepCheck('')
-      await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
-    }
+      let data = await dispatch(createAStep(payload));
+      if (Array.isArray(data)) {
+        setErrors(data)
+      } else {
+        await dispatch(getAStep(data.id))
+        setStepNumber('')
+        setSummary('')
+        setDescription('')
+        setErrors('')
+        setStepCheck('')
+        await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
+      }
     }
   }
 
