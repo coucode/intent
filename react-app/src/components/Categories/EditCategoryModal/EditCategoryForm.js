@@ -68,6 +68,27 @@ const EditCategoryForm = ({ category, setShowModal }) => {
     return Number(max) - Number(input.length)
   }
 
+
+  function yesPrivate(){
+    if (category.isPrivate === null){
+      return false
+    } else if (category.isPrivate === true){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  function noPrivate() {
+    if (category.isPrivate === null){
+      return false
+    } else if (category.isPrivate === false) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   return (
     <div className='category-form-container'>
       <div className='cancel-button-container'>
@@ -169,7 +190,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
               name='privacy'
               value='yes'
               onClick={(e) => setPrivate(true)}
-              defaultChecked={isPrivate === true ? true : false}
+              defaultChecked={yesPrivate()}
             >
             </input>
             <label className='category-form-radio-text'>Yes</label>
@@ -178,7 +199,7 @@ const EditCategoryForm = ({ category, setShowModal }) => {
               name='privacy'
               value='no'
               onClick={(e) => setPrivate(false)}
-              defaultChecked={isPrivate === true ? false : true}
+              defaultChecked={noPrivate()}
             >
             </input>
             <label className='category-form-radio-text'>No</label>
