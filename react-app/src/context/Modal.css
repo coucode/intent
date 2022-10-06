@@ -9,7 +9,6 @@
   align-items: center;
   z-index: 2;
   overflow: scroll;
-  border: 5px solid red;
 }
 
 #modal-background {
@@ -32,4 +31,5 @@
   height: auto;
   padding: 50px;
   border-radius: 10px;
+  top: 100px;
 }
