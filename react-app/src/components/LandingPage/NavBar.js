@@ -32,9 +32,14 @@ function NavBar({ setShowNav }) {
   function imageCheck() {
     if (user.image) {
       return (
-        <img src={user.image} alt="user" className='user-image' />
+        <img
+          src={user.image}
+          alt="user"
+          className='user-image'
+          onError={e => { e.currentTarget.src = "/static/images/categories/user.svg" }} />
       )
-    } else {
+    }
+    else {
       return (
         <img src='/static/images/categories/user.svg' alt="user" className='user-image' />
       )
@@ -44,13 +49,13 @@ function NavBar({ setShowNav }) {
   return loaded && filtered ? (
     <div className='navbar'>
       <div className='navbar-upper'>
-        <div>
+        <div className='navbar-upper-test'>
           <div className='navbar-top-container'>
             <NavLink to="/splashpage" className='navbar-logo-container'><i className="fa-solid fa-meteor fa-2xl"></i></NavLink>
             <div className='user-profile-container'>
               {/* <img src={user.image} alt="user" className='user-image' /> */}
               {imageCheck()}
-              <div>
+              <div className='navbar-profile-text-container'>
                 <p className='navbar-profile-text'>
                   {user.firstName} {user.lastName}
                 </p>
@@ -84,10 +89,10 @@ function NavBar({ setShowNav }) {
           <p className='splash-dev-inner-text' style={{ color: "var(--orange-button-color)", fontSize: '30px' }}>Cecilia Ou</p>
         </div>
         <div className='splash-links'>
-          <a href="https://github.com/coucode">
+          <a href="https://github.com/coucode" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-square-github fa-2xl devLinks"></i>
           </a>
-          <a href="https://www.linkedin.com/in/ceciliasou">
+          <a href="https://www.linkedin.com/in/ceciliasou" target="_blank" rel="noopener noreferrer">
             <i className="fa-brands fa-linkedin fa-2xl devLinks"></i>
           </a>
         </div>

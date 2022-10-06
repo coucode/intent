@@ -9,6 +9,7 @@
   align-items: center;
   z-index: 2;
   overflow: scroll;
+  border: 5px solid red;
 }
 
 #modal-background {
