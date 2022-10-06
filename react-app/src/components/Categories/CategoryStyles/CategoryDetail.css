@@ -195,4 +195,5 @@
   color: var(--grey-accent-font-color);
   position: relative;
   margin-bottom: 40px;
+  word-break: break-all;
 }

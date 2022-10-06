@@ -69,7 +69,7 @@ const CreateStepForm = ({ category, topic, allSteps }) => {
         <div className='create-step-input-container'>
           <input
             min='0'
-            maxLength={100}
+            max='50'
             type='number'
             name='stepNumber'
             onChange={(e) => setStepNumber(e.target.value)}

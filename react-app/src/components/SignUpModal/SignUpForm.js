@@ -78,7 +78,7 @@ const SignUpForm = ({ setShowModal }) => {
         </div>)}
         {passwordCheck()}
         <div className='signup-form-sections'>
-          <label className='signup-form-labels'>First Name</label>
+          <label className='signup-form-labels'>First Name <p className='category-form-required-text'>*</p></label>
           <input
             type='text'
             name='firstName'
@@ -86,10 +86,11 @@ const SignUpForm = ({ setShowModal }) => {
             value={firstName}
             className='signup-form-inputs'
             placeholder='Your First Name'
+            maxLength={100}
           ></input>
         </div>
         <div className='signup-form-sections'>
-          <label className='signup-form-labels'>Last Name</label>
+          <label className='signup-form-labels'>Last Name <p className='category-form-required-text'>*</p></label>
           <input
             type='text'
             name='lastName'
@@ -97,10 +98,11 @@ const SignUpForm = ({ setShowModal }) => {
             value={lastName}
             className='signup-form-inputs'
             placeholder='Your Last Name'
+            maxLength={100}
           ></input>
         </div>
         <div className='signup-form-sections'>
-          <label className='signup-form-labels'>Email</label>
+          <label className='signup-form-labels'>Email <p className='category-form-required-text'>*</p></label>
           <input
             type='text'
             name='email'
@@ -124,7 +126,7 @@ const SignUpForm = ({ setShowModal }) => {
           ></input>
         </div>
         <div className='signup-form-sections'>
-          <label className='signup-form-labels'>Password</label>
+          <label className='signup-form-labels'>Password <p className='category-form-required-text'>*</p></label>
           <input
             type='password'
             name='password'
@@ -136,7 +138,7 @@ const SignUpForm = ({ setShowModal }) => {
           ></input>
         </div>
         <div className='signup-form-sections'>
-          <label className='signup-form-labels'>Repeat Password</label>
+          <label className='signup-form-labels'>Repeat Password <p className='category-form-required-text'>*</p></label>
           <input
             type='password'
             name='repeat_password'

@@ -5,7 +5,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/SplashPage/SplashPage';
 import LandingPage from './components/LandingPage/LandingPage';
 import { NavContextProvider } from "./context/NavContext"
-
+import { SwitchModalContextProvider } from "./context/SwitchModalContext"
 
 function App() {
   const [currentUserIsLoaded, setCurrentUserIsLoaded] = useState(false);
@@ -31,7 +31,9 @@ function App() {
     } else {
       return (
         <>
-          <SplashPage />
+          <SwitchModalContextProvider>
+            <SplashPage />
+          </SwitchModalContextProvider>
         </>
       )
     }
@@ -44,7 +46,9 @@ function App() {
           <Home />
         </Route>
         <Route path='/splashpage' exact={true}>
-          <SplashPage />
+          <SwitchModalContextProvider>
+            <SplashPage />
+          </SwitchModalContextProvider>
         </Route>
         <Route>
           <Home />
