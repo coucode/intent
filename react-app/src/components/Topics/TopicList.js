@@ -39,23 +39,26 @@ function TopicList({ category }) {
   return loaded && filtered ? (
     <div className='topic-list-container'>
       {topicListNav}
-      {
-        filtered.map(topic => {
-          return (
-            <div className='topic-list-item-container'>
-              <NavLink to={`/category/${category.id}/topics/${topic.id}/preview`} className="topic-list-item-text">
-                {topic.name}
-              </NavLink>
-              <div className='topic-list-item-buttons'>
-                <EditTopicFormModal category={category} topic={topic} />
-                <NavLink to={`/category/${category.id}/topics/${topic.id}/steps/edit`} className="add-steps-in-topics">
-                  Add Steps
+      <div className='topic-list-item-outer-container'>
+        {
+          filtered.map(topic => {
+            return (
+              <div className='topic-list-item-container'>
+                <NavLink to={`/category/${category.id}/topics/${topic.id}/preview`} className="topic-list-item-text">
+                  {topic.name}
                 </NavLink>
+                <div className='topic-list-item-buttons'>
+                  <EditTopicFormModal category={category} topic={topic} />
+                  <NavLink to={`/category/${category.id}/topics/${topic.id}/steps/edit`} className="add-steps-in-topics">
+                    Add Steps
+                  </NavLink>
+                </div>
               </div>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+
+      </div>
     </div>
   ) : (
     <h1>Loading...</h1>
