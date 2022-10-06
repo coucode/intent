@@ -59,6 +59,10 @@ const SignUpForm = ({ setShowModal }) => {
     }
   }
 
+  function charRemaining(max, input) {
+    return Number(max) - Number(input.length)
+  }
+
   return (
     <div className='signup-form-container'>
       <div className='cancel-button-container'>
@@ -88,6 +92,7 @@ const SignUpForm = ({ setShowModal }) => {
             placeholder='Your First Name'
             maxLength={100}
           ></input>
+          <p className='signup-form-char-remaining-text'>{charRemaining(100, firstName)} characters remaining</p>
         </div>
         <div className='signup-form-sections'>
           <label className='signup-form-labels'>Last Name <p className='category-form-required-text'>*</p></label>
@@ -100,6 +105,7 @@ const SignUpForm = ({ setShowModal }) => {
             placeholder='Your Last Name'
             maxLength={100}
           ></input>
+          <p className='signup-form-char-remaining-text'>{charRemaining(100, lastName)} characters remaining</p>
         </div>
         <div className='signup-form-sections'>
           <label className='signup-form-labels'>Email <p className='category-form-required-text'>*</p></label>
@@ -110,7 +116,10 @@ const SignUpForm = ({ setShowModal }) => {
             value={email}
             className='signup-form-inputs'
             placeholder='Your Email Address'
+            maxLength={100}
+
           ></input>
+          <p className='signup-form-char-remaining-text'>{charRemaining(100, email)} characters remaining</p>
         </div>
         <div className='signup-form-sections'>
           <label className='signup-form-profile-label'>Profile Picture</label>
