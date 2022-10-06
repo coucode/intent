@@ -44,6 +44,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   display: flex;
+  width: 125px;
+
 }
 
 .topic-detail-name {
@@ -54,6 +56,10 @@
   margin: 0;
   margin-left: 20px;
   position: relative;
+  width: 35vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Topic Detail Navigation Bar */
