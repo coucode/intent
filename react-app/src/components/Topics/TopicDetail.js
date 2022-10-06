@@ -99,7 +99,7 @@ function TopicDetail({topics}) {
 
   let overview = (
     <div className="topic-detail-overview-container">
-      <div>
+      <div className="topic-detail-category-container">
         <NavLink to={`/category/${category?.id}/about`} className="topic-detail-category-link">
           <i className="fa-solid fa-chevron-left"></i>
           <div className="topic-category-detail-icon-container">
@@ -108,10 +108,10 @@ function TopicDetail({topics}) {
           <p id="topic-category-name-text">{category?.name}</p>
         </NavLink>
       </div>
-      <div>
+      <div className="topic-detail-name-container">
         <p className="topic-detail-name">{topic?.name}</p>
       </div>
-      <div>
+      <div className="topic-detail-buttons-container">
         <EditTopicFormModal category={category} topic={topic} />
         <button onClick={handleDeleteClick} className='delete-topic-button'>Delete</button>
       </div>

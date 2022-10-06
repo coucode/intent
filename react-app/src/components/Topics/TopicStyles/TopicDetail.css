@@ -7,6 +7,18 @@
 }
 
 /* Topic Detail - Link back to the Category Page */
+.topic-detail-category-container{
+  width: 20%;
+}
+
+.topic-detail-name-container {
+  width: 40%;
+}
+
+.topic-detail-buttons-container {
+  width: auto;
+}
+
 .topic-detail-category-link {
   display: flex;
   flex-direction: row;
@@ -55,10 +67,11 @@
   margin: 0;
   margin-left: 20px;
   position: relative;
-  width: 35vw;
+  max-width: 35vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
 }
 
 /* Topic Detail Navigation Bar */
