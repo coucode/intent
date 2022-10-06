@@ -37,10 +37,11 @@
   border-bottom: 1px solid #DDDDDD;
   margin: 0;
   position: relative;
+  max-width: 100%;
 }
 
 .topic-list-item-text {
-  width: 100%;
+  width: 45vw;
   height: auto;
   padding: 24px 30px 24px 36px;
   cursor: pointer;
@@ -49,6 +50,8 @@
   color: #197096;
   font-size: 18px;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
   /* margin: 0 18px 0 0; */
 }
 
