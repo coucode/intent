@@ -44,8 +44,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   display: flex;
-  width: 125px;
-
+  width: 10vw;
 }
 
 .topic-detail-name {

@@ -8,6 +8,15 @@
   justify-content: space-between;
 }
 
+.navbar-upper {
+  max-width: 100%;
+  width: 100%;
+}
+
+.navbar-upper-test {
+  width: 100%;
+}
+
 .navbar-lower {
   height: 150px;
   display: flex;
@@ -43,6 +52,7 @@
   justify-content: space-evenly;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .navbar-logo-container {
@@ -60,6 +70,7 @@
   flex-direction: column;
   align-items: center;
   margin-left: 15px;
+  width: 34%;
 }
 
 .user-image {
@@ -70,10 +81,18 @@
   border-radius: 50%;
 }
 
+.navbar-profile-text-container {
+  width: 100%;
+}
+
 .navbar-profile-text {
   color: var(--light-font-color);
   font-size: 16px;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: wrap;
+  text-align: center;
 }
 
 .navbar-logout-container {
