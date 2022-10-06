@@ -72,8 +72,9 @@ function TopicDetail({topics}) {
 
   if (topicLoaded === true && isOwner === false) {
     return (
-      <div>
+      <div className="redirect-container">
         <h1>This Topic does not exist...redirecting</h1>
+        <i className="fa-solid fa-satellite fa-10x fa-beat-fade redirect-icon"></i>
         {redirect()}
       </div>
     )
@@ -81,8 +82,9 @@ function TopicDetail({topics}) {
 
   if (!topic && exists === 'checked') {
     return (
-      <div>
+      <div className="redirect-container">
         <h1>This Topic does not exist...redirecting</h1>
+        <i className="fa-solid fa-satellite fa-10x fa-beat-fade redirect-icon"></i>
         {redirect()}
       </div>
     )
