@@ -2,6 +2,7 @@
   width: auto;
   height: 100%;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 /* Topics - navigation bar with header and create topic button */
@@ -29,6 +30,11 @@
 }
 
 /* Topic List */
+.topic-list-item-outer-container{
+  height: 125vh;
+  overflow-y: scroll;
+}
+
 .topic-list-item-container {
   display: flex;
   flex-direction: row;
