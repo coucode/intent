@@ -146,7 +146,7 @@ function TopicDetail({topics}) {
               <ul>
                 <li>A topic can have a maximum of 25 steps</li>
                 <li>Intent WILL check for duplicate step numbers</li>
-                <li>Intent WILL NOT check for missing step numbers (this gives you the flexibility to skip a step and revisit adding it later!)</li>
+                <li>Intent WILL NOT check for missing step numbers (giving you the flexibility to skip a step and revisit adding it later!)</li>
               </ul>
             </div>
             <div className="create-step-form-container">
