@@ -24,7 +24,8 @@ const CreateStepForm = ({ category, topic, allSteps }) => {
     } else {
       setStepCheck('')
     }
-  }, [stepNumber, numbers])
+  }, [stepNumber])
+  // Leaving numbers out of the dependency list resolves error of flashing error message after submit
 
   const createStep = async (e) => {
     e.preventDefault()
@@ -42,6 +43,7 @@ const CreateStepForm = ({ category, topic, allSteps }) => {
         setDescription('')
         setErrors('')
         setStepCheck('')
+        setHasSubmitted(false)
         await history.push(`/category/${category.id}/topics/${topic.id}/steps/edit`)
       }
     }
