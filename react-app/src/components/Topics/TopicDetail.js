@@ -141,6 +141,14 @@ function TopicDetail({topics}) {
             <StepList category={category} topic={topic} />
           </Route>
           <Route exact path={`/category/${category.id}/topics/${topic.id}/steps/edit`}>
+            <div className="edit-steps-instructions">
+              What you need to know about making steps:
+              <ul>
+                <li>A topic can have a maximum of 25 steps</li>
+                <li>Intent WILL check for duplicate step numbers</li>
+                <li>Intent WILL NOT check for missing step numbers (giving you the flexibility to skip a step and revisit adding it later!)</li>
+              </ul>
+            </div>
             <div className="create-step-form-container">
               <p className="step-form-header">Create a Step</p>
               <CreateStepForm category={category} topic={topic} allSteps={sorted} />
