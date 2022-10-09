@@ -34,7 +34,7 @@ const SignUpForm = ({ setShowModal }) => {
     setHasSubmitted(true)
 
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(firstName, lastName, email, password, image));
+      const data = await dispatch(signUp(firstName, lastName, email.toLowerCase(), password, image));
       if (data) {
         let parseData = Object.values(data)
         let flat = parseData.flat(2)
