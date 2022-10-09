@@ -28,7 +28,7 @@ const LoginForm = ({ setShowModal }) => {
     e.preventDefault();
     setHasSubmitted(true)
 
-    const data = await dispatch(login(email, password));
+    const data = await dispatch(login(email.toLowerCase(), password));
     if (data) {
       setErrors(data);
     }

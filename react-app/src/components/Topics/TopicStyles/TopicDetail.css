@@ -141,3 +141,13 @@
   height: 95vh;
   overflow-y: scroll;
 }
+
+.edit-steps-instructions {
+  padding: 5px 65px;
+  color: var(--main-font-color);
+  font-size: 20px;
+}
+
+.edit-steps-instructions>ul {
+  font-size: 16px;
+}

@@ -84,18 +84,16 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
 
         <div className='create-step-input-container'>
           <input
-            min='0'
-            max='50'
             type='number'
             name='stepNumber'
             onChange={(e) => setStepNumber(e.target.value)}
             value={stepNumber}
-            placeholder="1"
+            placeholder="Step number goes here"
             className='create-step-inputs-left'
             id='right-border'
           >
           </input>
-          <p className='step-form-required-text'>*</p>
+          <p className='step-form-required-text'>* required</p>
         </div>
         <div className='create-step-input-container'>
           <textarea
@@ -109,8 +107,10 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
             id='right-border'
           >
           </textarea>
-          <p className='step-form-required-text'>*</p>
-          <p className='create-step-char-remaining' id="dual">{charRemaining(100, summary)} characters remaining</p>
+          <div className='step-req-remain-container'>
+            <p className='step-form-required-text'>* required</p>
+            <p className='create-step-char-remaining' >{charRemaining(100, summary)} characters remain</p>
+          </div>
         </div>
         <div className='create-step-input-container'>
           <textarea
@@ -123,10 +123,13 @@ const EditStepForm = ({ category, topic, step, allSteps }) => {
             className='create-step-inputs-right'
           >
           </textarea>
-          <p className='create-step-char-remaining'>{charRemaining(1000, description)} characters remaining</p>
+          <p className='create-step-char-remaining'>{charRemaining(1000, description)} characters remain</p>
         </div>
-        <button type='submit' className='create-step-button'><i className="fa-solid fa-check fa-xl"></i></button>
-        <button type='button' onClick={handleDeleteClick} className='delete-set-button'><i className="fa-solid fa-trash-can fa-xl"></i></button>
+        <div className='step-edit-buttons'>
+          <button type='submit' className='create-step-button'><i className="fa-solid fa-check fa-xl"></i></button>
+          <button type='button' onClick={handleDeleteClick} className='delete-set-button'><i className="fa-solid fa-trash-can fa-xl"></i></button>
+
+        </div>
       </form>
     </div>
   )
