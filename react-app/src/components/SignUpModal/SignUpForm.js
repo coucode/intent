@@ -123,7 +123,7 @@ const SignUpForm = ({ setShowModal }) => {
         </div>
         <div className='signup-form-sections'>
           <label className='signup-form-profile-label'>Profile Picture</label>
-          <p className='signup-form-image-subtitle'>Only .jpg, .jpeg, .png image links are accepted</p>
+          <p className='signup-form-image-subtitle'>Only jpg, jpeg, png image links are accepted</p>
           <input
             type='url'
             name='image'
