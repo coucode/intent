@@ -63,13 +63,13 @@ function LandingPage() {
               <CategoryDetail categories={categoryArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id'>
-              <TopicDetail topics={topicArr} />
+              <TopicDetail categories={categoryArr} topics={topicArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/preview'>
-              <TopicDetail topics={topicArr} />
+              <TopicDetail categories={categoryArr} topics={topicArr} />
             </Route>
             <Route exact path='/category/:categoryId/topics/:id/steps/edit'>
-              <TopicDetail topics={topicArr} />
+              <TopicDetail categories={categoryArr} topics={topicArr} />
             </Route>
             <Route>
               <LandingPageHome />
