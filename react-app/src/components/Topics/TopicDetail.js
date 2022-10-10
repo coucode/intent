@@ -11,7 +11,7 @@ import StepList from "../Steps/StepList"
 import EditTopicFormModal from "./EditTopicModal"
 import './TopicStyles/TopicDetail.css'
 
-function TopicDetail({topics}) {
+function TopicDetail({categories, topics}) {
   const dispatch = useDispatch()
   const history = useHistory()
   const { categoryId, id } = useParams()
@@ -22,6 +22,7 @@ function TopicDetail({topics}) {
   
   const category = categoryObj[categoryId]
   const topic = topicObj[id]
+  const [categoryLoaded, setCategoryLoaded] = useState(false)
   const [topicLoaded, setTopicLoaded] = useState(false)
   const [isOwner, setOwner] = useState(false)
 
@@ -35,6 +36,15 @@ function TopicDetail({topics}) {
     dispatch(getAllSteps())
 
   }, [dispatch, categoryId, id])
+
+  useEffect(() => {
+    if (category) {
+      setCategoryLoaded(true)
+      if (Number(category.ownerId) === Number(user.id)) {
+        setOwner(true)
+      }
+    }
+  }, [category, user])
 
   useEffect(() => {
     if (topic) {
@@ -60,6 +70,15 @@ function TopicDetail({topics}) {
     setTimeout(() => { history.push(`/`) }, 1000)
   }
 
+  let categoryExists = false;
+  categories.forEach((category) => {
+    if (Number(category.id) === Number(categoryId)) {
+      categoryExists = true;
+    } else {
+      categoryExists = 'checked'
+    }
+  })
+
   let exists = false;
 
   topics.forEach(topic => {
@@ -69,6 +88,28 @@ function TopicDetail({topics}) {
       exists = 'checked'
     }
   })
+
+  if (categoryLoaded === true && isOwner === false) {
+    return (
+      <div className="redirect-container">
+        <h1>This resource does not exist...redirecting</h1>
+        <i className="fa-solid fa-satellite fa-10x fa-beat-fade redirect-icon"></i>
+        {redirect()}
+      </div>
+    )
+  }
+
+  if (!category && categoryExists === 'checked') {
+    return (
+      <div className="redirect-container">
+        <h1>This resource does not exist...redirecting</h1>
+        <i className="fa-solid fa-satellite fa-10x fa-beat-fade redirect-icon"></i>
+        {redirect()}
+      </div>
+    )
+  }
+
+
 
   if (topicLoaded === true && isOwner === false) {
     return (
@@ -88,6 +129,18 @@ function TopicDetail({topics}) {
         {redirect()}
       </div>
     )
+  }
+
+  if (topic && category){
+    if (topic.categoryId !== category.id){
+      return(
+        <div className="redirect-container">
+          <h1>This Topic does not exist...redirecting</h1>
+          <i className="fa-solid fa-satellite fa-10x fa-beat-fade redirect-icon"></i>
+          {redirect()}
+        </div>
+      )
+    }
   }
 
   if (!topic) return null
