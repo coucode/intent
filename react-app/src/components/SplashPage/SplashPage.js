@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom"
 import SplashLogoutButton from '../auth/SplashLogoutButton'
 import LoginModal from '../LoginModal'
 import SignUpModal from '../SignUpModal'
+import SplashCarousel from './Carousel'
 import './SplashPage.css'
 
 function SplashPage() {
@@ -143,7 +144,7 @@ function SplashPage() {
 
         </div>
       </div>
-      
+      <SplashCarousel />      
 
     </div>
   )
