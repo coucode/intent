@@ -68,7 +68,7 @@
 
 /* Main Content */
 .splash-main-content {
-  height: calc(100vh - 80px - 150px);
+  /* height: calc(100vh - 80px - 150px); */
   position: static;
   display: flex;
   align-items: flex-end;
