@@ -73,13 +73,9 @@ def upgrade():
     )
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-    if environment == "production":
         op.execute(f"ALTER TABLE categories SET SCHEMA {SCHEMA};")
-    if environment == "production":
         op.execute(f"ALTER TABLE topics SET SCHEMA {SCHEMA};")
-    if environment == "production":
         op.execute(f"ALTER TABLE steps SET SCHEMA {SCHEMA};")
-    if environment == "production":
         op.execute(f"ALTER TABLE scores SET SCHEMA {SCHEMA};")        
     # ### end Alembic commands ###
 
