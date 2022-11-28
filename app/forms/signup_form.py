@@ -33,7 +33,8 @@ def valid_url(form, field):
         raise ValidationError("Image link must begin with http:// or https://")
 
 class SignUpForm(FlaskForm):
-    email = StringField('email', validators=[DataRequired(message="Email is required"), Email(), user_exists])
+    # removed email validator , Email()
+    email = StringField('email', validators=[DataRequired(message="Email is required"), user_exists])
     password = StringField('password', validators=[DataRequired(message="Password is required")])
     firstName = StringField('First Name', 
                         validators=[DataRequired(message='First name is required'), 
