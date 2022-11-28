@@ -2,7 +2,7 @@
 
 Intent is a web application inspired by Brainscape, but with a twist. The intent of Intent is to allow learners to effectively learn steps in a sequence, procedure, or task. 
 
-* [Click here to view Intent](https://intent-co.herokuapp.com/)
+* [Click here to view Intent](https://intent.onrender.com/)
 
 Please see below links to the Project Wiki: 
 
